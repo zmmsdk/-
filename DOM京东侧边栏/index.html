@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <!-- 版心 -->
+  <div class="w">
+    <div class="slide">
+      <!-- 左侧 -->
+      <div class="left">
+        <ul>
+          <li><a href="#">主菜单项目1</a></li>
+          <li><a href="#">主菜单项目2</a></li>
+          <li><a href="#">主菜单项目3</a></li>
+          <li><a href="#">主菜单项目4</a></li>
+          <li><a href="#">主菜单项目5</a></li>
+          <li><a href="#">主菜单项目6</a></li>
+          <li><a href="#">主菜单项目7</a></li>
+          <li><a href="#">主菜单项目8</a></li>
+          <li><a href="#">主菜单项目9</a></li>
+          <li><a href="#">主菜单项目10</a></li>
+          <li><a href="#">主菜单项目11</a></li>
+          <li><a href="#">主菜单项目12</a></li>
+          <li><a href="#">主菜单项目13</a></li>
+          <li><a href="#">主菜单项目14</a></li>
+          <li><a href="#">主菜单项目15</a></li>
+          <li><a href="#">主菜单项目16</a></li>
+        </ul>
+      </div>
+      <!-- 右侧 -->
+      <div class="right">
+        <div class="item">
+          <img src="images/01.png"></div>
+        <div class="item">
+          <img src="images/02.png"></div>
+        <div class="item">
+          <img src="images/03.png"></div>
+        <div class="item">
+          <img src="images/04.png"></div>
+        <div class="item">
+          <img src="images/05.png"></div>
+        <div class="item">
+          <img src="images/06.png"></div>
+        <div class="item">
+          <img src="images/07.png"></div>
+        <div class="item">
+          <img src="images/08.png"></div>
+        <div class="item">
+          <img src="images/09.png"></div>
+        <div class="item">
+          <img src="images/10.png"></div>
+        <div class="item">
+          <img src="images/11.png"></div>
+        <div class="item">
+          <img src="images/12.png"></div>
+        <div class="item">
+          <img src="images/13.png"></div>
+        <div class="item">
+          <img src="images/14.png"></div>
+        <div class="item">
+          <img src="images/15.png"></div>
+        <div class="item">
+          <img src="images/16.png"></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- <script src="js/index.js"></script> -->
+  <script type="text/javascript">
+
+      // 获取元素
+  	   var lis = document.querySelectorAll('.left li');
+       var items = document.querySelectorAll('.item');
+       var slide = document.querySelector('.slide');
+  
+      // 1、鼠标进入显示
+      // 鼠标进入li显示（给当前li添加类名active），div要显示（display:block）
+      // div要显示哪个要用数组下标，这个下标就是当前li的下标
+      for (var i = 0; i < lis.length; i++) {
+
+        lis[i].index = i;
+
+        lis[i].onmouseenter = function () {
+          // 在li添加类名之前把所有类名清空
+          for (var i = 0; i < lis.length; i++) {
+
+            lis[i].className = '';
+            items[i].style.display = 'none';
+
+          }
+
+          // 给当前li添加类名
+          this.className = 'active';
+          // div显示
+          items[this.index].style.display = 'block';
+
+        }
+
+      }
+
+
+      
+      // 2、鼠标离开隐藏
+      slide.onmouseleave = function () {
+
+        for (var i = 0; i < lis.length; i++) {
+
+            lis[i].className = '';
+            items[i].style.display = 'none';
+
+          }
+
+      }
+
+  </script>
+</body>
+
+</html>

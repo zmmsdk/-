@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	<script type="text/javascript" src="js/index.js" ></script>
+	<style type="text/css">
+		body,img,input,ul,li,h3,p,dl,dd ,dt{margin:0px;border:0px;padding:0px; font-family:"微软雅黑";list-style-type:none;}
+a{text-decoration:none;}
+		/*第一个性定制礼物部分样式*/
+.commCss{width:1200px;height:535px; margin:0px auto;}
+.commCss p.ti{line-height:40px; font-size:14px; }
+.commCss p span{
+	float: right;
+	margin-right: 5px;
+	padding-right: 15px;
+	color: #3c3c3c;
+}
+/*.commCss p.ti_1{line-height:40px; font-size:16px; float: right;overflow: hidden;}*/
+.commCss .PartCon{border:1px solid #ddd; height:500px;}
+.commCss .PartL{
+	width:315px;
+	height:490px;
+	position:relative; 
+	float:left;
+	/*border: 1px solid red;*/
+	margin: 5px;
+}
+
+/*.commCss .PartM{width:175px; height:500px;float:left;border-left:1px solid #ddd; border-right:1px solid #ddd;}*/
+
+.commCss .PartL p.title{font-size:16px; color:#666; width:280px; margin:0px auto; line-height:30px;
+			text-align:center;}
+.commCss .PartL img.prev{
+	display:block; /*img是行内元素display:block把img转化为块级元素*/
+	position:absolute;
+	 left:10px; 
+	 top:210px;
+	}
+.commCss .PartL img.next{
+	display:block; 
+	position:absolute; 
+	right:10px; 
+	top:210px;
+}
+.commCss .PartL .imgList{
+	width:280px;
+	height:480px;
+	 margin:10px auto; 
+	 overflow:hidden;
+	  position:relative;
+	}
+.commCss .PartL ul{
+	width:2000px; 
+	position:absolute;/*子绝父相*/
+}
+.commCss .PartL ul li{width:280px;height:480px; list-style-type:none; float:left;}
+.commCss .PartL ul li h3{font-size:16px; color:#666; line-height:35px; font-weight:100;
+				font-family:"微软雅黑"; text-align:center;}
+.commCss .PartL ul li span{font-size:14px; color:#000; border:1px solid #ddd; border-radius:3px;display:block; margin:30px auto; width:110px;height:40px;
+			line-height:40px;text-align:center;font-family:"微软雅黑"; }
+.commCss .PartL ul li span font{color:#ff3366;}
+
+
+
+.commCss .partR{
+	width:860px;
+	height:490px;
+	position:relative; 
+	float:right;
+	/*border: 1px solid red;*/
+	margin: 5px;
+}
+
+/*.commCss .PartM{width:175px; height:500px;float:left;border-left:1px solid #ddd; border-right:1px solid #ddd;}*/
+
+.commCss .partR p.title{font-size:16px; color:#666; width:280px; margin:0px auto; line-height:30px;
+			text-align:center;}
+.commCss .partR img.prev1{
+	display:block; /*img是行内元素display:block把img转化为块级元素*/
+	position:absolute;
+	 left:10px; 
+	 top:210px;
+	 z-index: 100;
+	  border: 2px solid #ddd;
+	  /*width: 20px;*/
+	}
+.commCss .partR img.next1{
+	display:block; 
+	position:absolute; 
+	right:10px; 
+	top:210px;
+	 z-index: 100;
+	 border: 2px solid #ddd;
+}
+.commCss .partR .imgList1{
+	width:860px;
+	height:480px;
+	 margin:5px auto; 
+	 overflow:hidden;
+	  position:relative;
+	}
+.commCss .partR ul{
+	width:2000px; 
+	position:absolute;/*子绝父相*/
+}
+.commCss .partR ul li{width:860px;height:480px; list-style-type:none; }
+
+.commCss .partR .div{
+	width: 860px;
+	height: 550px;
+	background-color: pink;
+	overflow: hidden;
+}
+.commCss .partR .div1{
+	width: 860px;
+	height: 550px;
+	background-color: red;
+	overflow: hidden;
+}
+.commCss .partR .div2{
+	width: 860px;
+	height: 550px;
+	background-color: purple;
+	overflow: hidden;
+}
+.commCss .partR .div3{
+	width: 860px;
+	height: 550px;
+	background-color: skyblue;
+	overflow: hidden;
+}
+
+.commCss .PartR .imgList1 ul li .div-in{/*让li在加hover时不被挤下去则给li和li:hover同时指定不同颜色的边框*/
+	/*display: block;*/
+	height: 220px;
+	/*height: 210px;*/
+	 margin:5px; 
+	 float:left;
+	 overflow: hidden;
+	 border: 1px solid #000;
+	 display: inline-block;
+	}
+
+
+
+
+	</style>
+</head>
+<body>
+	<!--第一部分个性定制礼物开始-->
+<div id="Specific" class="commCss">
+	<p class="ti">明星单品<span>更多</span><span>更多</span><span>更多</span><span>更多</span></p>
+	<!-- <p class="ti_1">个性定制</p>
+	<p class="ti_1">个性定制</p> -->
+	<div class="PartCon">
+		<!--PartL start-->
+		<div class="PartL">
+
+			<!--左右切换按扭-->
+			<img src="image/prev.png" class="prev" />
+			<img src="image/next.png" class="next" />
+
+			<!--产品列表内容开始-->
+			<div class="imgList">
+				<ul>
+					<li>
+						<img src="image/jr_img1.jpg" width="280" height="280"/>
+						<h3>瞌睡兔音乐枕 午休音乐枕头 可连接手机、MP3听音乐的玩偶公</h3>
+						<span>特价：<font>116.0元</font></span>
+					</li>
+					<li>
+						<img src="image/jr_img2.jpg" width="280" height="280"/>
+						<h3>瞌睡兔音乐枕 午休音乐枕头 可连接手机、MP3听音乐的玩偶公</h3>
+						<span>特价：<font>116.0元</font></span>
+					</li>
+					<li>
+						<img src="image/jr_img3.jpg" width="280" height="280"/>
+						<h3>瞌睡兔音乐枕 午休音乐枕头 可连接手机、MP3听音乐的玩偶公</h3>
+						<span>特价：<font>116.0元</font></span>
+					</li>
+					<li>
+						<img src="image/jr_img4.jpg" width="280" height="280"/>
+						<h3>瞌睡兔音乐枕 午休音乐枕头 可连接手机、MP3听音乐的玩偶公</h3>
+						<span>特价：<font>116.0元</font></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--PartL end-->
+
+		
+		
+		<!--partR start-->
+		<div class="partR">
+
+			<!--左右切换按扭-->
+			<img src="image/prev.png" class="prev1" />
+			<img src="image/next.png" class="next1" />
+
+			<!--产品列表内容开始-->
+			<div class="imgList1">
+				<ul>
+					<li>
+						<!-- 嵌入开始 -->
+				<div class="div">
+
+					
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						
+			    </div>
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div1">
+			    	    <div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						
+						
+			    </div>
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div2">
+
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+					
+						
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div3">
+
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+						<div class="div-in"><img src="image/zp5.jpg" width='200' /></div>
+					
+
+			    </div>
+			<!-- 嵌入结束 -->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--partR end-->
+
+		<!--PartM end-->
+	</div>
+<div style="clear:both"></div></div>
+<!--第一部分个性定制礼物结束-->
+
+
+	<script type="text/javascript">
+		// jQuery选择器
+
+		$("img.prev").click(function(){
+
+			$(".imgList ul").animate({"left":-280},500,function(){
+				$(this).append($(this).find("li:first"));
+				$(this).css("left",0);
+			});
+
+		});
+
+		$("img.next").click(function(){
+
+			autoPlay();
+
+		});
+
+		var cleartime=setInterval(autoPlay,2000);
+		//鼠标放上去，停止播入
+		$("img.next,img.prev").hover(function(){
+			clearInterval(cleartime);
+		},function(){
+			cleartime=setInterval(autoPlay,3000);
+		});
+
+		function autoPlay(){
+
+			$(".imgList ul").prepend($(".imgList ul li:last"));
+			$(".imgList ul").css("left",-280);
+			$(".imgList ul").animate({"left":0},500);
+		}
+		// 	function autoPlay(){
+
+		// 	$(".PartR ul").prepend($(".imgList ul li:last"));
+		// 	$(".PartR ul").css("left",-280);
+		// 	$(".PartR ul").animate({"left":0},500);
+		// }
+	</script>    
+
+</body>
+</html>

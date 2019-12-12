@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<!--父盒子-->
+<div class="nodeSmall" id="node_small">
+  <a href="#"></a>
+  <!--二维码的盒子:进行显示隐藏的操作-->
+  <div class="erweima hide" id="er">
+    <img src="images/456.png" alt=""/>
+  </div>
+</div>
+
+<script>
+  //1 获取元素
+  var box = document.getElementById("node_small");//进行操作的大盒子
+  var er = document.getElementById("er");//进行显示隐藏的二维码盒子
+  
+  //2 设置移入移出事件
+  box.onmouseover = function () {
+    //移入时设置二维码盒子显示
+    er.className = "erweima show";
+  };
+  
+  box.onmouseout = function () {
+    //移入时设置二维码盒子隐藏
+    er.className = "erweima hide";
+  };
+
+</script>
+</body>
+</html>

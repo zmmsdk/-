@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	<style type="text/css">
+		body,img,input,ul,li,h3,p,dl,dd ,dt{margin:0px;border:0px;padding:0px; font-family:"微软雅黑";list-style-type:none;}
+a{text-decoration:none;}
+		/*第一个性定制礼物部分样式*/
+.commCss{width:1200px;height:535px; margin:0px auto;}
+.commCss p.ti{line-height:40px; font-size:14px; }
+.commCss p span{
+	float: right;
+	margin-right: 5px;
+	padding-right: 15px;
+	color: #3c3c3c;
+}
+/*.commCss p.ti_1{line-height:40px; font-size:16px; float: right;overflow: hidden;}*/
+.commCss .PartCon{border:1px solid #ddd; height:500px;}
+.commCss .partR{
+	width:860px;
+	height:490px;
+	position:relative; 
+	float:right;
+	/*border: 1px solid red;*/
+	margin: 5px;
+}
+
+/*.commCss .PartM{width:175px; height:500px;float:left;border-left:1px solid #ddd; border-right:1px solid #ddd;}*/
+
+.commCss .partR p.title{font-size:16px; color:#666; width:280px; margin:0px auto; line-height:30px;
+			text-align:center;}
+.commCss .partR img.prev{
+	display:block; /*img是行内元素display:block把img转化为块级元素*/
+	position:absolute;
+	 left:820px; 
+	 top:0px;
+	 z-index: 100;
+	  border: 2px solid #ddd;
+	  /*width: 20px;*/
+	}
+.commCss .partR img.next{
+	display:block; 
+	position:absolute; 
+	right:10px; 
+	top:0px;
+	 z-index: 100;
+	 border: 2px solid #ddd;
+}
+.commCss .partR .imgList{
+	width:860px;
+	height:480px;
+	 margin:5px auto; 
+	 overflow:hidden;
+	  position:relative;
+	}
+.commCss .partR ul{
+	width:2000px; 
+	position:absolute;/*子绝父相*/
+}
+.commCss .partR ul li{width:860px;height:480px; list-style-type:none; float:left;}
+
+.commCss .partR .div{
+	width: 860px;
+	height: 550px;
+	background-color: pink;
+	overflow: hidden;
+}
+.commCss .partR .div1{
+	width: 860px;
+	height: 550px;
+	background-color: red;
+	overflow: hidden;
+}
+.commCss .partR .div2{
+	width: 860px;
+	height: 550px;
+	background-color: purple;
+	overflow: hidden;
+}
+.commCss .partR .div3{
+	width: 860px;
+	height: 550px;
+	background-color: skyblue;
+	overflow: hidden;
+}
+
+	</style>
+</head>
+<body>
+	<!--第一部分个性定制礼物开始-->
+<div id="Specific" class="commCss">
+	<p class="ti">明星单品<span>更多</span><span>更多</span><span>更多</span><span>更多</span></p>
+	<!-- <p class="ti_1">个性定制</p>
+	<p class="ti_1">个性定制</p> -->
+	<div class="PartCon">
+		<!--partR start-->
+		<div class="partR">
+
+			<!--左右切换按扭-->
+			<img src="image/prev.png" class="prev" />
+			<img src="image/next.png" class="next" />
+
+			<!--产品列表内容开始-->
+			<div class="imgList">
+				<ul>
+					<li>
+						<!-- 嵌入开始 -->
+				<div class="div">123</div>
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div1">456</div>
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div2">789</div>
+			<!-- 嵌入结束 -->
+					</li>
+					<li>
+			    <div class="div3">110</div>
+			<!-- 嵌入结束 -->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--partR end-->
+
+		
+
+	</div>
+<div style="clear:both"></div></div>
+<!--第一部分个性定制礼物结束-->
+
+
+	<script type="text/javascript">
+		// jQuery选择器
+
+		$("img.prev").click(function(){
+
+			$(".imgList ul").animate({"left":1},500,function(){
+				$(this).append($(this).find("li:first"));
+				$(this).css("left",0);
+			});
+
+		});
+
+		$("img.next").click(function(){
+
+			autoPlay();
+
+		});
+
+		var cleartime=setInterval(autoPlay,5000);
+		//鼠标放上去，停止播入
+		$("img.next,img.prev").hover(function(){
+			//获取定时器的返回值，用来清除定时器
+			clearInterval(cleartime);
+		},function(){
+			// 使用定时器，第一个参数，要执行定时器的函数，第二个参数，每个多长时间进行执行，1000MS = 1S
+			cleartime=setInterval(autoPlay,6000);
+		});
+
+		function autoPlay(){
+
+			$(".imgList ul").prepend($(".imgList ul li:last"));
+			$(".imgList ul").css("left",3);
+			 // 正负代表轮播移动的方向
+			$(".imgList ul").animate({"left":0},500);
+		}
+		
+	</script>    
+
+</body>
+</html>

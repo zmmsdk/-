@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .video {
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: #ccc;
+            position: relative;
+        }
+        .video input {
+            position: absolute;
+            right: -100px;
+        }
+        .video input:last-child {
+            top: 100px;
+        }
+
+        .bg-black {
+            background-color: #000;
+        }
+
+    </style>
+</head>
+<body>
+<div class="video">
+    <input type="button" value="关灯" class="btn1" />
+    <input type="button" value="开灯" class="btn2" />
+</div>
+<script>
+
+    var btn1 = document.querySelector('.btn1');
+    var btn2 = document.querySelector('.btn2');
+
+    btn1.onclick = function () {
+        document.body.className = 'bg-black';
+    }
+
+    btn2.onclick = function () {
+        // document.body.className = '';
+        document.body.classList.remove('bg-black');
+    }
+
+
+    /*
+    *  1 点击关灯的时候，整个页面变黑
+    *  2 点击开灯的时候，整个页面变白
+    * */
+//     // 1 获取元素
+//     var btns = document.querySelectorAll("input");
+// //    var body = document.getElementsByTagName("body")[0];
+//     var body = document.body;// 获取body可以直接这么来
+// //    console.log(btns);
+//     // 2 注册事件
+//     btns[0].onclick = function(){
+//         //把body变黑 - 可以同修改body的class属性修改其背景颜色
+//         body.className = "bg-black";
+//     }
+//     // 3 在处理程序里面把页面变黑或者变白 - 把body的背景颜色改变
+//     btns[1].onclick = function(){
+//         //把body变白 - 之前是通过修改class来完成的变黑，也可以通过修改class完成变白
+// //        body.className = "";
+//         // 也可以直接把class属性删除掉
+//         body.removeAttribute("class");
+//     }
+</script>
+</body>
+</html>

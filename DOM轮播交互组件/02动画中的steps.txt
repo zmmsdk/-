@@ -1,0 +1,17 @@
+/* infinite: 无限*/
+      /* animation-iteration-count: infinite; */
+
+/* 应用场景：分为小步去完成 */
+      /* animation-timing-function: steps(3); */
+
+
+
+
+ /* 4.速度变化 */
+      /* 默认值：ease 慢-快-慢 */
+      /* linear :匀速 !!! */
+      /* animation-timing-function: linear; */
+      /* animation-timing-function: ease-in-out; */
+      /* steps() 把上面的一大步，拆为8小步完成*/
+      /* 应用场景：分为小步去完成 */
+      /* animation-timing-function: steps(3); */

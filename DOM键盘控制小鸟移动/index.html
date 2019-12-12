@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background: skyblue;
+    }
+
+    img {
+      width: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .toLeft {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+
+<body>
+  <img src="xn.png" alt="">
+  <script>
+    // 1. 获取图片元素
+    var img = document.querySelector('img');
+    // 2. 定义两个变量，分别表示小鸟的left和top
+    var x = 0;
+    var y = 0;
+    // 3. 给document注册onkeydown事件
+    document.onkeydown = function (e) {
+      // 3.1 通过事件对象中的keyCode属性侦测按键（四种情况）
+      // e.keyCode 返回一个键码值，数字
+      if (e.keyCode == 37) {
+        console.log('←');
+        // 调头
+        img.className = 'toLeft';
+        x-=10;
+      } else if (e.keyCode == 38) {
+        console.log('↑');
+        y-=10;
+      } else if (e.keyCode == 39) {
+        console.log('→');
+         // 调头
+         img.className = '';
+        x+=10;
+      } else if (e.keyCode == 40) {
+        console.log('↓');
+        y+=10;
+      }
+
+      // 把最新的值赋值图片的left和top样式
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
+    };
+
+  </script>
+</body>
+
+</html>

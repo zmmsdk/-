@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动案例</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	.lunbo{
+		width: 100%;
+            max-width: 640px;
+          
+            height: 205px;
+            position: relative;
+
+		border: 1px solid pink;
+		/*position: relative;*/
+		margin: 100px auto;
+		overflow: hidden;
+		
+	}
+	.lunbo:hover  ul{
+		animation-play-state: paused;  /*鼠标悬停暂停动画鼠标经过nav里面的ul就不做动画了*/
+	}
+	.lunbo ul{
+		/*position: absolute;
+		top: 300px;
+		left: 200px;*/
+		/*width: 200%;一个是882 882是所有图片的总宽度*/
+		width:3500px;
+
+	}
+	.lunbo ul{
+		animation: moveing 20s steps(5) 2s infinite;/*引用动画infinite无限循环默认减速ease匀速linear*/
+	}
+
+	@keyframes moveing{/*定义动画*/
+		from{
+				transform: translateX(0);
+		}
+		to{
+			transform: translateX(-3500px);/*负882往左走  882是7张图片的宽度之和*/
+		}
+	}
+
+	.lunbo ul li{
+		float: left;
+		/*overflow: hidden;*/
+
+	}
+
+	/* 圆点样式开始 */
+	 /* 2 */
+	 @keyframes yuandian {
+    /* 初始化 没有移动 */
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(830%);
+    }
+  }
+            
+            
+                
+                 
+             
+      
+        .lunbo .yuandian{
+            width: 150px;
+            height: 20px;
+
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            /* background-color: pink; */
+
+            
+        }
+        .lunbo .translate{
+            width: 15px;
+            height: 15px;
+            /* display: block; */
+            position: absolute;
+
+            bottom: 5px;
+            right: 125px;
+            background-color: deeppink;
+            border-radius: 50%;
+    animation-name: yuandian;
+             /* 3.时间 */
+    animation-duration: 10s;
+    /* ease:慢-快-慢 */
+    /* steps:几小步去完成动画，一般情况就是 两个动画序列 动画节点*/
+    animation-timing-function: steps(5);
+    /* animation-timing-function: linear; */
+
+    animation-iteration-count: infinite;
+        }
+        .lunbo .yuandian li{
+            float: left;
+            margin-left: 10px;
+            list-style: none;
+            background-color: #ccc;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+
+   
+        }
+      
+	</style>
+</head>
+<body>
+	<!-- 无缝滚动：最常见的网页广告 -->
+	<!-- nav>ul>li*7 -->
+	<div class="lunbo">
+		<ul>
+			<li><img src="01.jpg" alt=""></li>
+			<li><img src="02.jpg" alt=""></li>
+			<li><img src="03.jpg" alt=""></li>
+			<li><img src="04.jpg" alt=""></li>
+			<li><img src="05.jpg" alt=""></li>
+			
+
+			<!-- 在复制一份 -->
+			<li><img src="01.jpg" alt=""></li>
+			<li><img src="02.jpg" alt=""></li>
+			<li><img src="03.jpg" alt=""></li>
+			<li><img src="04.jpg" alt=""></li>
+			<li><img src="05.jpg" alt=""></li>
+			
+		</ul>
+		<!-- 圆点组件开始 -->
+		<div class="yuandian">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="translate">
+
+                </div>
+		</div>
+		<!-- 圆点组件结束 -->
+	</div>
+</body>
+</html>

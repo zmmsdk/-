@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"></link>
+    <script src="../bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+ 
+    <script>
+        //设置学生对象数组,添加数据
+        var studs = [{
+                id: '001',
+                name: '张三',
+                age: 20
+            },
+            {
+                id: '002',
+                name: '李四',
+                age: 21
+            },
+            {
+                id: '003',
+                name: '王五',
+                age: 22
+            }, {
+                id: '004',
+                name: '赵1',
+                age: 23
+            }, {
+                id: '005',
+                name: '孙2',
+                age: 24
+            }
+        ];
+ 
+        //设置表格的表头数据
+        var tablehead = ["学号", "姓名", "年龄"];
+        //将每个学生对象的属性提取出来
+        var studsattribute = ["id", "name", "age"];
+        //创建各种标签
+        function init() {
+            //创建body标签
+            var body = document.body;
+            //创建第一个div标签container
+            var container = document.createElement("div");
+            //将container加入到body中去
+            body.appendChild(container);
+            //创建第二个div标签row
+            var row = document.createElement("div");
+            //设置row的属性
+            row.setAttribute("class", "row");
+            //将row加入到container中去
+            container.appendChild(row);
+            //创建第三个div标签col
+            var col = document.createElement("div");
+            //设置col的属性
+            col.setAttribute("class", "col-md-12");
+            //将col加入到row中去
+            row.appendChild(col);
+ 
+            //最终返回col
+            return col;
+ 
+        }
+ 
+        //创建表格
+        function inittable(col) {
+            var table = document.createElement("table");
+            //将table加到col中去
+            col.appendChild(table);
+            //设置table的属性
+            table.setAttribute("class", "table table-bordered table-striped table-hover");
+            //创建第一个tr标签存储第一行的数据
+            var tr_head = document.createElement("tr");
+            //将第一个tr加入到table中去
+            table.appendChild(tr_head);
+            //使用for循环将表头数据tr_head加到第一个tr中去,第一行中有四个数据
+            for (var i = 0; i < tablehead.length; i++) {
+                //创建td存储数据
+                var th = document.createElement("th");
+                //设置th的属性
+                th.setAttribute("class", "text-center");
+                //将数据加进th
+                th.innerHTML = tablehead[i];
+                //将th加入到tr中去
+                tr_head.appendChild(th);
+            }
+            //使用for循环将学生对象加入到table中去
+            for (var k = 0; k < studs.length; k++) {
+                //有多少个学生对象就生成多少个tr
+                var tr = document.createElement("tr");
+                //将tr加入到table中去
+                table.appendChild(tr);
+                //使用for循环将学生信息加入到tr中去
+                for (var j = 0; j < studsattribute.length; j++) {
+                    //生成td用于存储数据
+                    var td = document.createElement("td");
+                    //设置td的属性
+                    td.setAttribute("class", "text-center");
+                    //插入数据
+                    td.innerHTML = studs[k][studsattribute[j]];
+                    tr.appendChild(td);
+                }
+                //再创建一个td_last用于存储最后的操作项
+                var td_last = document.createElement("td");
+                //设置td_last的属性
+                td_last.setAttribute("class", "text-center");
+                
+        }
+         }
+        window.onload = function() {
+           var col=init();
+            inittable(col);
+        }
+    </script>
+</head>
+ 
+<body>
+ 
+</body>
+ 
+</html>

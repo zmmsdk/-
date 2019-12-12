@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        div.main {
+            width: 600px;
+            margin: 0 auto;
+        }
+        img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+
+    <div class="first">
+        <input type="button" value="美女1" id="btn1"/>
+        <input type="button" value="美女2"  id="btn2"/>
+        <input type="button" value="美女3" id="btn3"/>
+        <input type="button" value="美女4"  id="btn4"/>
+        <input type="button" value="美女5"  id="btn5"/>
+    </div>
+    <div class="second">
+        <img src="images/00.jpg" alt="" id="img"/>
+    </div>
+
+</div>
+<script>
+
+
+	var btns = document.querySelectorAll('.first input');
+	var img = document.querySelector('.second img');
+
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].index = i;
+
+		btns[i].onclick = function () {
+
+			img.src = 'images/0' + this.index + '.jpg';
+
+		}
+
+	}
+
+
+    /*
+    * 第三种：
+    *       根据标签名找到元素，采用循环注册事件，切换图片
+    *
+    *
+    *   知识点：
+    *       1 伪数组可以循环的注册事件
+    *       2 循环注册事件的时候，循环先执行完毕，而函数是触发事件的时候才执行
+    *       3 循环里面的i在函数中是不能直接使用的
+    *       4 如果要使用跟i相关的数据，可以在函数外面先存起来  元素对象.属性 = i;
+    *       5 在函数里面可以使用this访问被注册了事件的对象
+    *       6 this就是点的对象，该对象就可以访问存储在其身上的数据
+    * */
+    // 1 根据标签名获取元素
+//     var img = document.getElementById("img");
+//     var ips = document.getElementsByTagName("input");
+//     //2 循环注册事件
+//     for(var i = 0; i < ips.length ; i++){
+//         // 在循环中注册事件，如果想要使用跟索引相关的数据，必须先存储起来，存到对象身上
+//         ips[i].index = i;
+//         ips[i].onclick  = function(){
+// //            console.log(this.index);//函数里面的this指向的是 事件的触发对象
+// //            console.log(i);// i为什么一直是5
+//             // 3 修改图片的src
+//             img.src = "images/0"+ (this.index + 1) +".jpg";
+//         }
+//     }
+//    console.log(i);
+
+    /*
+    *  解决i是5的问题
+    *
+    *       思考：
+    *           循环和函数谁先执行完毕？
+    *               函数里面的代码必须是调用的时候执行
+    *               注册事件的时候，函数会在触发事件的时候执行
+    *
+    *               而循环，页面刷新就执行了
+    *
+    *
+    *               循环注册事件中好像不能用i，如果想要使用跟循环相关的i，的先存起来
+    * */
+
+
+  
+
+</script>
+</body>
+</html>

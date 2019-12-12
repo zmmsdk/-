@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{padding: 0;margin: 0;}
+  div{width: 200px;
+  height: 200px;}
+  #box1{
+    background-color: pink;
+  }
+  #box2{
+    background-color:yellow;
+  }
+  </style>
+</head>
+<body>
+  <div id="box1">
+
+  </div>
+  <div id="box2"></div>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var dv = document.getElementById("dv");
+        function ff(target){
+                    clearInterval(timeId);  //解决隐藏的BUG，每次点击先清理定时器再创建定时器，解决多次点击时运动变快的BUG
+                    var current = dv.offsetLeft;
+                    var timeId = setInterval(function(){
+                        if (current != target) {
+                            var temp = 9;   //设置每次走的距离  
+                            temp = current <= target ? temp : -temp;
+                            if (Math.abs(current-target) > Math.abs(temp)) {    //当前距离大于每次走得距离则继续走
+                                current += temp;
+                                dv.style.left = current + "px";
+                            } else {        //当前距离小于等于每次走得距离：则直接跳到目标位置,并且清理定时器
+                                dv.style.left = target + "px";
+                                clearInterval(timeId);
+                            }   
+                        }   
+                        
+                    },10);
+                }
+    
+        btn1.addEventListener("click",function(){ff(400);},false);
+        btn2.addEventListener("click",function(){ff(800);},false);
+    
+        </script>
+</body>
+</html>

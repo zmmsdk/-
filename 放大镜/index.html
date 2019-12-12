@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css"/>
+</head>
+<body>
+    <div class="w">
+        <div class="fdj">
+            <div class="leftBox" id="_leftBox">
+                <!-- 小图 -->
+                <img src="img/small.jpg" alt=""/>
+                <!-- 小黄盒子 -->
+                <div class="tool" id="_tool"></div>
+            </div>
+            <div class="rightBox" id="_rightBox">
+                <img id="_bImg" src="img/big.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+    <!-- 引入的外部js程序文件 -->
+    <!-- <script src="js/index.js"></script> -->
+    <script type="text/javascript">
+
+    var leftBox = document.getElementById('_leftBox');
+    var tool = document.getElementById('_tool');
+    var rightBox = document.getElementById('_rightBox');
+    var bImg = document.getElementById('_bImg');
+    leftBox.onmouseenter = function () {
+        tool.style.display = 'block';
+        rightBox.style.display = 'block';
+    }
+    leftBox.onmouseleave = function () {
+        tool.style.display = 'none';
+        rightBox.style.display = 'none';
+    }
+    leftBox.onmousemove = function (e) {
+
+        var x = e.clientX - leftBox.offsetLeft - tool.offsetWidth / 2;
+        var y = e.clientY - leftBox.offsetTop - tool.offsetHeight / 2;
+
+        if (x < 0) {
+            x = 0;
+        } else if (x > leftBox.offsetWidth - tool.offsetWidth) {
+            x = leftBox.offsetWidth - tool.offsetWidth;
+        }
+        if (y < 0) {
+            y = 0;
+        } else if (y > leftBox.offsetHeight - tool.offsetHeight) {
+            y = leftBox.offsetHeight - tool.offsetHeight;
+        }
+
+        tool.style.left = x + 'px';
+        tool.style.top = y + 'px';
+        // console.log(x,y);
+        
+        bImg.style.left = -2 * x + 'px';
+        bImg.style.top = -2 * y + 'px';
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // 获取元素
+        // var leftBox = document.getElementById('_leftBox');
+        // var tool = document.getElementById('_tool');
+        // var rightBox = document.getElementById('_rightBox');
+        // var bImg = document.getElementById('_bImg');
+
+        // // 鼠标进入左盒子，显示黄盒子和右盒子【依靠display属性】
+        // leftBox.onmouseover = function () {
+        //     // 显示黄盒子和右盒子
+        //     tool.style.display = 'block';
+        //     rightBox.style.display = 'block';
+        // }
+    
+        // // 鼠标离开左盒子，隐藏黄盒子和右盒子【依靠display属性】
+        // leftBox.onmouseout = function () {
+        //     // 隐藏黄盒子和右盒子
+        //     tool.style.display = 'none';
+        //     rightBox.style.display = 'none';
+        // }
+        
+        // // 鼠标在左盒子移动，移动的时候黄盒子和右图也要跟着移动【改变left和top的值】
+        // leftBox.onmousemove = function (e) {
+
+        //     // 获取鼠标的x和y，把鼠标的位置赋值给黄盒子的left和top
+        //     // 英文鼠标默认拿的就是文档的位置，默认的就会带有距离，把这个距离赋值给黄盒子，黄盒子就离鼠标有一段距离
+        //     // 这段距离刚好就左盒子左边的距离和上边的距离，我们需要把默认增加的这段距离减去
+        //     var x = e.pageX - leftBox.offsetLeft - tool.offsetWidth / 2;
+        //     var y = e.pageY - leftBox.offsetTop - tool.offsetHeight / 2;
+
+        //     // 判断
+        //     if (x < 0) {
+        //         x = 0;
+        //     } else if (x > leftBox.offsetWidth - tool.offsetWidth) {
+        //         x = leftBox.offsetWidth - tool.offsetWidth;
+        //     }
+
+        //    if (y < 0) {
+        //         y = 0;
+        //    } else if (y > leftBox.offsetHeight - tool.offsetHeight) {
+        //         y = leftBox.offsetHeight - tool.offsetHeight;
+        //    }
+
+        //     // 把x和y赋值给黄盒子
+        //     tool.style.left = x + 'px';
+        //     tool.style.top = y + 'px';
+
+        //     // console.log(x,y);
+        //     // 在移动黄盒子的时候，提示还要移动右边的大图，大图依靠left和top
+        //     bImg.style.left = -2 * x + 'px';
+        //     bImg.style.top = -2 * y + 'px';
+        // }
+
+
+    </script>
+</body>
+</html>

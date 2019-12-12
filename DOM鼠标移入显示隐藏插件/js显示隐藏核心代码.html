@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 隐藏区域样式 */
+        #hide{
+            display: none;
+            width: 400px;
+            height: 100px;
+            background-color: pink;
+        }
+
+    </style>
+    <script>
+    // window.onload = function(){
+    //     document.getElementById("show").onclick = function(){
+    //         document.getElementById("hide").style.display = "block";
+    //     }
+    // }
+
+       window.onload = function(){
+        document.getElementById("show").onmouseover = function(){
+            document.getElementById("hide").style.display = "block";
+        }
+
+        document.getElementById("show").onmouseleave = function(){
+            document.getElementById("hide").style.display = "none";
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="button" id="show" value="显示隐藏">
+
+
+    <div id="hide">我是隐藏的div </div>
+</body>
+</html>

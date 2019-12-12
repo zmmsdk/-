@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/weibo.css">
+</head>
+
+<body>
+  <div class="w">
+    <div class="controls">
+      <img src="images/tip.png" alt=""><br>
+      <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+      <div>
+        <span class="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+      </div>
+
+    </div>
+    <div class="contentList">
+      <ul>
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var area = document.getElementById('area');
+    var useCount = document.querySelector('.useCount');
+    var send = document.getElementById('send');
+    var ul = document.querySelector('.contentList ul');
+
+    area.oninput = function (){
+      useCount.innerText = area.value.length;
+    }
+
+    send.onclick = function (){
+      if(area.value.length == 0){
+        alert('内容不能为空');
+      }else{
+        var newli = document.createElement('li');
+        ul.insertBefore(newli,ul.children[0]);
+        var info = document.createElement('div');
+        info.className = "info";
+        newli.appendChild(info);
+        var img = document.createElement('img');
+        info.appendChild(img);
+        img.src = "images/03.jpg";
+        var span = document.createElement('span');
+        span.innerText = '英雄名称';
+        info.appendChild(span);
+        var p = document.createElement('p');
+        info.appendChild(p);
+        p.innerText = new Date().toLocaleString();
+
+
+
+
+        var content = document.createElement('content');
+        content.className = "content";
+        content.innerText = area.value;
+        newli.appendChild(content);
+        area.value = "";
+        useCount.innerHTML = 0;
+      }
+    }
+  </script>
+</body>
+
+</html>

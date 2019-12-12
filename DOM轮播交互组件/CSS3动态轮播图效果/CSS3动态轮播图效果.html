@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动案例</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	nav{
+		width: 126px;
+		height: 86px;
+		border: 1px solid pink;
+		/*position: relative;*/
+		margin: 100px auto;
+		overflow: hidden;
+		
+	}
+	nav:hover  ul{
+		animation-play-state: paused;  /*鼠标悬停暂停动画鼠标经过nav里面的ul就不做动画了*/
+	}
+	nav ul{
+		/*position: absolute;
+		top: 300px;
+		left: 200px;*/
+		/*width: 200%;一个是882*/
+		width: 882px;
+
+	}
+	nav ul{
+		animation: moveing 20s steps(7) 2s infinite;/*引用动画infinite无限循环默认减速ease匀速linear*/
+	}
+
+	@keyframes moveing{/*定义动画*/
+		from{
+				transform: translateX(0);
+		}
+		to{
+			transform: translateX(-882px);/*负882往左走  882是7张图片的宽度之和*/
+		}
+	}
+
+	nav ul li{
+		float: left;
+		/*overflow: hidden;*/
+
+	}
+	</style>
+</head>
+<body>
+	<!-- 无缝滚动：最常见的网页广告 -->
+	<!-- nav>ul>li*7 -->
+	<nav>
+		<ul>
+			<li><img src="images/nav1.jpg" alt=""></li>
+			<li><img src="images/nav2.jpg" alt=""></li>
+			<li><img src="images/nav3.jpg" alt=""></li>
+			<li><img src="images/nav4.jpg" alt=""></li>
+			<li><img src="images/nav5.jpg" alt=""></li>
+			<li><img src="images/nav6.jpg" alt=""></li>
+			<li><img src="images/nav7.jpg" alt=""></li>
+
+			<!-- 在复制一份 -->
+			<li><img src="images/nav1.jpg" alt=""></li>
+			<li><img src="images/nav2.jpg" alt=""></li>
+			<li><img src="images/nav3.jpg" alt=""></li>
+			<li><img src="images/nav4.jpg" alt=""></li>
+			<li><img src="images/nav5.jpg" alt=""></li>
+			<li><img src="images/nav6.jpg" alt=""></li>
+			<li><img src="images/nav7.jpg" alt=""></li>
+		</ul>
+	</nav>
+</body>
+</html>

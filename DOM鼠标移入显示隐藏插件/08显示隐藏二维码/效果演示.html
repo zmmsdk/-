@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<!--父盒子-->
+<div class="nodeSmall" id="node_small">
+  <a href="#"></a>
+  <!--二维码的盒子-->
+  <div class="erweima hide" id="er">
+    <img src="images/456.png" alt=""/>
+  </div>
+</div>
+
+<script>
+  //操作nodeSmall，移入移出后，控制内部的er显示与隐藏
+  var nodeSmall = document.getElementById("node_small");
+  var er = document.getElementById("er");
+  
+  //如果标签具有了自带的类名，我们通过手动设置可能会出现问题（可能在后期进行类名的修改，导致和初始设置的类名不同）
+  //我们希望在标签当前具有的类名基础上进行修改，保证不会出错
+  
+  
+  // 替换方法 replace();
+  // 语法规则： 字符串.replace("要替换的部分","替换为的内容");
+  
+  nodeSmall.onmouseover = function () {
+    //在操作时，先获取到标签当前所具有的类名
+    var tempStr = er.className;
+    //找到字符串中指定的部分，进行替换即可
+    var resultStr = tempStr.replace("hide", "show");
+    //将修改后的结果设置给标签的className属性
+    er.className = resultStr;
+  };
+  
+  nodeSmall.onmouseout = function () {
+    er.className = er.className.replace("show", "hide");
+  };
+  
+  
+  function replaceClass(tag, oldCls, newCls) {
+    var cls = tag.className;//保存原有类名
+    //如果没有类名，直接设置
+    if(!tag.className){
+      tag.className = newCls;
+    }
+    //将类名进行分隔
+    var tempArr = tag.className.split(" ");
+    //如果只有一个类名，直接设置为新类名后跳出
+    if (tempArr.length == 1 && tempArr[0] == oldCls) {
+      tag.className = newCls;
+      return;
+    }
+  }
+
+</script>
+
+</body>
+</html>

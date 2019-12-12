@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- <meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" > -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery仿途牛网站焦点图代码 - 站长素材</title>
+<script type="text/javascript" src="jQuery v3.3.1.js"></script>
+<script type="text/javascript" src="lubotu.js"></script>
+
+<style type="text/css">
+  *{ margin:0; padding:0; }
+  img{ display: block; border:none;}
+  ul,li{ list-style: none;}
+  /*轮播属性开始*/
+  .lunbo{ width: 60%; min-width:820px;clear: both; position: relative; height:419px;margin: auto;}
+  /*轮播属性结束*/
+  /*轮播无序列表属性开始*/
+  .lunbo_box{ position: relative; width: 100%; height:368px; }
+  /*轮播无序列表属性结束*/
+  /*轮播无序列表项属性开始*/
+  .lunbo_box li{ float: left;position: absolute; top: 0; left: 0; width: 100%; height:419px; opacity: 0;filter:alpha(opacity=0);}
+  .lunbo_box li a{ display: block;width: 100%;  height: 100%;}
+
+  .lunbo_box li img{ width: 100%; height: 368px;}
+  /*轮播无序列表项属性结束*/
+
+  /*圆点盒子属性开始*/
+  /*圆点z-index正负值决定着网页多层元素的显示*/
+  .cir_box{ overflow: hidden; position: absolute; z-index: 100;}
+  /*圆点盒子属性结束*/
+  /*圆点列表项属性开始*/
+  .cir_box li{ float: left; width: 30px; height: 5px; margin:0 5px; cursor: pointer; background: #fff; opacity: 0.8;filter:alpha(opacity=80);}
+  /*圆点列表项属性结束*/
+  /*规定不透明度级别。从 0.0 （完全透明）到 1.0（完全不透明）。*/
+
+  /*圆点点击背景开始*/
+  .cir_on{ background: #000 !important;}
+  /*圆点点击背景结束*/
+
+  /*按钮盒子属性开始*/
+  .lunbo_btn{ position: absolute; width: 100%; top: 140px;z-index: 100;}
+  /*按钮盒子属性结束*/
+  /*按钮内容属性开始*/
+  .left_btn, .right_btn{ width: 30px; height: 80px; background: #000;  opacity: 0.8;filter:alpha(opacity=80); cursor: pointer; color: #fff; line-height: 80px; font-size: 30px; text-align: center; padding:10px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -o-user-select:none;
+  user-select:none;user-select:none;}
+  /*按钮内容属性结束*/
+
+  /*user-select:none;设置或检索不允许用户选中文本*/
+  /*按钮盒子属性结束*/
+  .left_btn{ float: left;}
+  .right_btn{ float: right;}
+</style>
+</head>
+<body>
+<!-- 轮播开始 -->
+<div class="lunbo">
+  <!-- 轮播无序列表开始 -->
+  <ul class="lunbo_box">
+    <!-- 轮播无序列表项开始 -->
+    <li style=" opacity: 1;filter:alpha(opacity=100);"><a href="" style="background:url(1.jpeg) center top no-repeat"></a></li><!-- no-repeat不平铺 center使背景图在页面缩小时显示正常不偏移-->
+    <li><a href="" style="background:url(2.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(3.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(4.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(5.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(1.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(2.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(3.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(4.jpeg) center top no-repeat"></a></li>
+    <li><a href="" style="background:url(5.jpeg) center top no-repeat"></a></li>
+    <!-- 轮播无序列表项结束  -->
+  </ul>
+  <!-- 轮播无序列表结束  -->
+</div>
+<!-- 轮播结束 -->
+
+<script type="text/javascript">
+ /*$() jQuery对象搭建器*//*调用*/
+
+$(function(){
+
+    // 函数代码段开始
+    // $(".lubo") 所有 class="lubo" 的元素
+    $(".lunbo").lunbo({
+
+    });
+    // 函数代码段结束
+
+})
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
+

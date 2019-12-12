@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 研究课题  伪元素动画steps */
+        body{
+            background-color: #ccc;
+        }
+        /* 1.伪元素清除浮动  */
+
+        *{
+            margin: 0;
+            padding: 0;
+
+            text-decoration: none;
+
+            box-sizing: border-box;
+
+           
+        }
+	.clearfix::after{
+		content: ".";
+		clear: both;
+		display: block;
+	
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+		/* IE浏览器兼容 */
+		*zoom:1;
+	}
+        .container{
+            width: 100%;
+            max-width: 640px;
+
+            /* background-color: pink; */
+            /* height: 540px; */
+            margin: 0 auto;
+        }
+        header{
+            width: 100%;
+            max-width: 640px;
+
+            height: 45px;
+            line-height: 45px;
+
+            background-color: #fff;
+
+           position: relative;
+            /* 消除垂直塌陷 */
+           overflow: hidden;
+        }
+        /* 左右定位开始 */
+        header .logo{
+            width: 80px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            left: 0;
+          
+        }
+        header .logo img{
+            width: 100%;
+            height: 100%;
+        }
+        header .list{
+            width: 40px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+          
+        }
+        header .list img{
+            width: 60%;
+            height: 60%;
+            margin-top: 10px;
+        }
+
+        header .search_box{
+          /* 此处不设置宽度可以让盒子自由伸缩 */
+            height: 30px;
+            background-color: #ccc;
+
+            position: relative;
+            margin: 7px 50px 7px 90px;
+
+            border-radius: 15px;
+            
+        }
+        header .search_box .max{
+            width: 35px;
+            height: 30px;
+            /* margin: 7px 0px; */
+
+            border-radius: 0 15px 15px 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            background-color: deeppink;
+
+            /* background: url("images/search-btn.png"); */
+            /* background-repeat: no-repeat; */
+
+        }
+        header .search_box .max img{
+            width: 50%;
+            height: 60%;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+        header .search_box input{
+            height: 25px;
+            background-color: #ccc;
+            width: 80%;
+            position: absolute;
+            top: 1px;
+            left: 15px;
+           outline: none;
+           border: none;
+
+        }
+        .lunbo{
+            width: 100%;
+            max-width: 640px;
+          
+            height: 205px;
+            position: relative;
+
+            overflow: hidden;
+
+             /* 2.调用 */
+            animation: donghua 20s infinite  ;
+             /* 3.执行时间 duration 持续时间*/
+            /* animation-duration: 12s; */
+             /* 无限次数设置  */
+            /* animation-iteration-count: infinite; */
+        }
+        /* css3l轮播图效果start */
+        @keyframes donghua{
+            0%{
+                background: url("images/01.jpg");
+            }
+            20%{
+                background: url("images/02.jpg");
+            }
+            40%{
+                background: url("images/03.jpg");
+            }
+            60%{
+                background: url("images/04.jpg");
+            }
+             80%{
+                 background: url("images/05.jpg");
+                 }
+             100%{
+                 background: url("images/01.jpg");
+                 }
+             }
+             /* 2 */
+             @keyframes yuandian {
+    /* 初始化 没有移动 */
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(830%);
+    }
+  }
+            
+            
+                
+                 
+             
+      
+        .lunbo .yuandian{
+            width: 150px;
+            height: 20px;
+
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            /* background-color: pink; */
+
+            
+        }
+        .lunbo .translate{
+            width: 15px;
+            height: 15px;
+            /* display: block; */
+            position: absolute;
+
+            bottom: 5px;
+            right: 125px;
+            background-color: deeppink;
+            border-radius: 50%;
+    animation-name: yuandian;
+             /* 3.时间 */
+    animation-duration: 10s;
+    /* ease:慢-快-慢 */
+    /* steps:几小步去完成动画，一般情况就是 两个动画序列 动画节点*/
+    animation-timing-function: steps(5);
+    /* animation-timing-function: linear; */
+
+    animation-iteration-count: infinite;
+        }
+        .lunbo .yuandian li{
+            float: left;
+            margin-left: 10px;
+            list-style: none;
+            background-color: #ccc;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+
+   
+        }
+      
+        nav{
+            width: 100%;
+          
+            max-width: 640px;
+
+            text-align: center;
+
+            background-color: #fff;
+
+           
+        }
+        nav span{
+            display: block;
+        }
+        nav a{
+            float: left;
+            width: 25%;
+
+            margin-top: 10px;
+
+            color: #666;
+            padding-bottom: 10px;
+
+
+        }
+        /* 秒杀模块开始 */
+        section{
+            width: 100%;
+          
+          max-width: 640px;
+
+          background-color: #fff;
+        
+
+        background-color: #fff;
+
+        margin-top: 10px;
+        }
+        .miaosha{
+            width: 100%;
+          
+          max-width: 640px;
+          padding: 15px 15px 0 15px;
+
+          /* background-color: pink; */
+          height: 70px;
+        }
+        .miaosha span{
+            font-size: 22px;
+            text-align: left;
+         
+        }
+        .miaosha span:nth-child(2){
+            float: right;
+
+            color: deeppink;
+        }
+
+        section a{
+            width: 33%;
+            float: left;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+           height: auto;
+         
+
+    
+        }
+        section a img{
+            width: 90%;
+            vertical-align: top;
+            box-sizing: border-box;
+          
+
+        }
+        section a span{
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+
+            color: deeppink;
+
+            font-weight: 700;
+            
+        }
+        section .first{
+            width: 50%;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            height: auto;
+
+            
+        }
+        section .last{
+            width: 50%;
+            height: auto;
+
+            /* 边框搭档 */
+            border-top: 1px solid #ccc;
+
+            box-sizing: border-box;
+
+            overflow: hidden;
+        }
+        .footer{
+            width: 100%;
+            max-width: 640px;
+            background-color: #fff;
+        }
+        .user{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            font-size: 22px;
+            font-weight: 700;
+            color: #666;
+        }
+        .user span:nth-child(3){
+            float: right;
+
+            /* color: deeppink; */
+        }
+        .user span:nth-child(2){
+           margin-left: 20px;
+        }
+        .middle{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+        
+            font-size: 18px;
+         
+            color: #666;
+            text-align: center;
+
+        }
+        .middle span{
+            margin-left: 10px;
+        }
+        .middle span:nth-child(2){
+          color: deeppink
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header start -->
+        <header>
+            <div class="logo">
+                <img src="images/dd-logo.png" alt="">
+            </div>
+
+            <div class="search_box">
+                    <input type="text" autofocus  placeholder="请输入您的宝贝">
+                <div class="max">
+                       
+                    <img src="images/search-btn.png" alt="">
+
+                    
+                </div>
+            </div>
+
+            <div class="list">
+                <img src="images/header-category.png" alt="">
+            </div>
+        </header>
+
+        <!-- lunbo start -->
+        <div class="lunbo">
+           
+            <div class="yuandian">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="translate">
+
+                </div>
+            </div>
+        </div>
+
+        <nav class="clearfix">
+            <a href="#"><img src="images/fenlei.png" alt=""><span>分类</span></a>
+            <a href="#"><img src="images/xiazai-0605.png" alt=""><span>立减5元</span></a>
+            <a href="#"><img src="images/gouwuche.png" alt=""><span>购物车</span></a>
+            <a href="#"><img src="images/wodeh5.png" alt=""><span>个人信息</span></a>
+
+            <a href="#"><img src="images/haoshubang.png" alt=""><span>热卖榜</span></a>
+                <a href="#"><img src="images/tognshubang-0604.png" alt=""><span>促销榜</span></a>
+                <a href="#"><img src="images/9.9.png" alt=""><span>优惠商品</span></a>
+                <a href="#"><img src="images/dianzihsu.png" alt=""><span>更多商品</span></a>
+        </nav>
+        <!-- 秒杀模块开始 -->
+        <section class="clearfix">
+            <div class="miaosha">
+                <span>秒杀</span>
+            </div>
+
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+            <a href="#"><img src="images/6.jpg" alt=""><span>&yen;1.00</span></a>
+               
+        </section>
+
+        <div class="lunbo">
+                <img src="images/10banner-620X1501.jpg" alt="">
+        </div>
+
+
+        <section class="clearfix">
+                <div class="miaosha">
+                    <span>推荐商品</span>
+                    <span>更多</span>
+                </div>
+    
+                <a href="#" class="first"><img src="images/DHC-h51.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/doujiangjih52.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/liangpinpuzih53.jpg" alt=""></a>
+                
+                   
+        </section>
+        <section class="clearfix">
+                <div class="miaosha">
+                    <span>优惠商品</span>
+                    <span>更多</span>
+                </div>
+    
+                <a href="#" class="first"><img src="images/DHC-h51.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/doujiangjih52.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/liangpinpuzih53.jpg" alt=""></a>
+                
+                   
+        </section>
+
+        <section class="clearfix">
+                <div class="miaosha">
+                    <span>热卖商品</span>
+                    <span>更多</span>
+                </div>
+    
+                <a href="#" class="first"><img src="images/DHC-h51.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/doujiangjih52.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/liangpinpuzih53.jpg" alt=""></a>
+                
+                   
+        </section>
+
+        <section class="clearfix">
+                <div class="miaosha">
+                    <span>最新商品</span>
+                    <span>更多</span>
+                </div>
+    
+                <a href="#" class="first"><img src="images/DHC-h51.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/doujiangjih52.jpg" alt=""></a>
+                <a href="#" class="last"><img src="images/liangpinpuzih53.jpg" alt=""></a>
+                
+                   
+        </section>
+
+        <div class="footer">
+            <div class="user">
+                    <span>登录</span>
+                    <span>注册</span>
+                    <span>TOP</span>
+            </div>
+
+            <div class="middle">
+                    <span>提建议</span>
+                    <span>触屏版</span>
+                    <span>电脑版</span>
+                    <span>帮助</span>
+            </div>
+            <div class="middle">
+                    <span>copyright zmmsdk 2014-2019 zmmsdk.com</span>
+                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

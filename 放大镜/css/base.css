@@ -1,0 +1,59 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+.w {
+    width: 1190px;
+    margin: 0 auto;
+
+}
+.fdj {
+    margin-top: 20px;
+}
+
+.fdj .leftBox {
+    width: 400px;
+    height: 400px;
+    border: 1px solid #ccc;
+    float: left;
+    position: relative;
+}
+
+.fdj .tool {
+    width: 250px;
+    height: 250px;
+    background:gold;
+    opacity:.5;
+    filter:alpha(opacity=50);
+    position: absolute;
+    top:0;
+    left: 0;
+    cursor: move;
+    /* 默认隐藏 */
+    display: none;
+
+}
+/* 给小黄加上active 就会显示 */
+.fdj .tool.active {
+    display: block;
+}
+
+.fdj .rightBox {
+    width: 500px;
+    height: 500px;
+    border:1px solid #ccc;
+    float: left;
+    overflow: hidden;
+    /* 隐藏 */
+    display: none;
+    position: relative;
+}
+/* 加上active表示显示 */
+.fdj .rightBox.active {
+    display: block;
+}
+
+.fdj .rightBox img {
+    position: absolute;
+}

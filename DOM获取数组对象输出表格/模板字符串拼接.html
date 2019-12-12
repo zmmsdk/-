@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <table border='1' style="border-collapse: collapse;">
+    <thead>
+      <tr>
+        <td>姓名</td>
+        <td>姓名</td>
+        <td>姓名</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张三</td>
+        <td>16</td>
+        <td>男</td>
+      </tr>
+    </tbody>
+  </table> -->
+  <script>
+      var tableDatas = {
+    theadDatas: ["姓名", "年龄", "性别"],
+    tbodyDatas: [
+      {name: "张三", age: 22, sex: "男"},
+      {name: "小蝉", age: 17, sex: "女"},
+      {name: "元芳", age: 26, sex: "男"},
+      {name: "小红", age: 12, sex: "女"},
+      {name: "赵六", age: 48, sex: "男"},
+    ]
+  };
+  var theadDatas = tableDatas.theadDatas;
+  var tbodyDatas = tableDatas.tbodyDatas;
+  // console.log(theadDatas,tbodyDatas)
+  str = `<table border='1' style="border-collapse: collapse;"><thead><tr>`
+  for(var i = 0;i<theadDatas.length;i++){
+    str+=`<td>${theadDatas[i]}</td>`
+  }
+  str+=`</thead><tbody>`
+  for(var i = 0;i<tbodyDatas.length;i++){
+    str+=`<tr>`
+    var tbds = tbodyDatas[i]
+    for(var k in tbds){
+      str+=`<td>${tbds[k]}</td>`
+    }
+    str+=`</tr>`
+  }
+  str+=` </tbody>`
+  document.write(str)
+
+  
+  
+  </script>
+</body>
+
+</html>                                     

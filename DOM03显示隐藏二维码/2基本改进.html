@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<!--父盒子-->
+<div class="nodeSmall" id="node_small">
+  <a href="#"></a>
+  <!--二维码的盒子:进行显示隐藏的操作-->
+  <div class="erweima hide fl colorRed a b c" id="er">
+    <img src="images/456.png" alt=""/>
+  </div>
+</div>
+
+<script>
+  //1 获取元素
+  var box = document.getElementById("node_small");//进行操作的大盒子
+  var er = document.getElementById("er");//进行显示隐藏的二维码盒子
+  
+  //2 设置移入移出事件
+  
+  //移入移出时，如果二维码盒子的类名已经被修改过(跟原始的两个类名不同了，内部的操作也需要修改)
+  box.onmouseover = function () {
+    //不合理的代码：将设置的类名书写为固定值，如果结构中进行过类名的修改，那么js代码也需要修改，很麻烦。
+    //er.className = "erweima show fl colorRed";
+    
+    //合理的代码： 在标签当前类名的基础上进行修改
+    //1 保存当前的类名，字符串类型
+    var tempClass = er.className;
+    //2 在当前类名的基础上进行类名的修改(将hide修改为show)：使用字符串的replace()方法
+    er.className = tempClass.replace("hide", "show");
+    
+  };
+  
+  box.onmouseout = function () {
+    //移入时设置二维码盒子隐藏
+    er.className = "erweima hide";
+  };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var str = 'helloworld';
+      //拼接两个字符 得到最总的结果  Helloworld
+      // 编写一个函数，将如下字符串'get-element-by-id'修改为驼峰表示法'getElementById' 
+      var str = 'get-element-by-id';
+      var arr = str.split('-');
+      console.log(arr)
+      var sum = arr[0];
+      // console.log(arr)
+      for(var i=1;i<arr.length;i++){
+        // console.log(arr[i])
+        arrs =arr[i].charAt(0).toUpperCase()+arr[i].substring(1)
+        // console.log(arrs)
+        // var sum = arrs+arr[0]
+        // console.log(sum)
+
+        sum+=arrs
+      }
+      console.log(sum)
+      
+      
+   
+  </script>
+</body>
+
+</html>

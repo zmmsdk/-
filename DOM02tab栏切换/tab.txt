@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+            // 1、点击切换
+            // 思路：点击li添加类名，点击谁给谁添加类名(active)，div要显示【display：block】
+            // 获取元素
+            var lis = document.querySelectorAll('li');// lis = [li,li,li......]
+            var items = document.querySelectorAll('.item');// items = [div,div,div......];
+
+            // 添加事件
+            for (var i = 0; i < lis.length; i++) {// 这个循环是为了给元素添加事件
+                // 一进入循环立刻给每个li添加个属性表示下标
+                lis[i].index = i;
+
+                lis[i].onclick = function () {
+                    // 在添加类名之前，我们把所有的li的className清空，再设置当前这个li的className
+                    for (var j = 0; j < lis.length; j++) {// 为了清除类名
+
+                        lis[j].className = '';
+                        items[j].style.display = 'none';
+
+                    }
+
+                    // 隐藏所有div
+                    // for (var j = 0; j < items.length; j++) {
+                    //     items[j].style.display = 'none';
+                    // }
+
+                    // 当前事件源
+                    this.className = 'active';
+                    // div要显示
+                    // var xb = this.index;
+                    items[this.index].style.display = 'block';
+
+                }
+
+            }

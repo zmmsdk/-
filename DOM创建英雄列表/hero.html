@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/hero.css">
+</head>
+
+<body>
+  <a href="javascript:" id="create">创建英雄列表</a>
+  <ul class="list">
+  
+  </ul>
+  <!-- <script src="js/hero.js"></script> -->
+  <script type="text/javascript">
+  		// 后的的数据
+  		// datas = [{},{},{}]
+		var datas = [
+		  { name: '司马懿', imgSrc: '01.jpg' },
+		  { name: '女娲', imgSrc: '02.jpg' },
+		  { name: '百里守约', imgSrc: '03.jpg' },
+		  { name: '亚瑟', imgSrc: '04.jpg' },
+		  { name: '虞姬', imgSrc: '05.jpg' },
+		  { name: '张良', imgSrc: '06.jpg' },
+		  { name: '安其拉', imgSrc: '07.jpg' },
+		  { name: '李白', imgSrc: '08.jpg' },
+		  { name: '阿珂', imgSrc: '09.jpg' },
+		  { name: '墨子', imgSrc: '10.jpg' },
+		  { name: '鲁班', imgSrc: '11.jpg' },
+		  { name: '嬴政', imgSrc: '12.jpg' },
+		  { name: '孙膑', imgSrc: '13.jpg' },
+		  { name: '周瑜', imgSrc: '14.jpg' },
+		  { name: 'XXX', imgSrc: '15.jpg' },
+		  { name: 'XXX', imgSrc: '16.jpg' },
+		  { name: 'XXX', imgSrc: '17.jpg' },
+		  { name: 'XXX', imgSrc: '18.jpg' },
+		  { name: 'XXX', imgSrc: '19.jpg' },
+		  { name: 'XXX', imgSrc: '20.jpg' }
+		];
+
+		// 鼠标点击创建列表
+		// 获取元素
+		var create = document.getElementById('create');
+		var ul = document.querySelector('.list');
+		// ul>li==>img==>src，title
+		
+		create.onclick = function () {
+
+			// 创建li，遍历数组，遍历出来一个就应该创建一个
+			for (var i = 0; i < datas.length; i++) {
+				// console.log( datas[i] );
+				// 创建代码
+				// 创建li
+				var newLi = document.createElement('li');
+				// 追加到ul
+				ul.appendChild(newLi);
+
+				// img
+				var img = document.createElement('img');
+				// 追加到newLi
+				newLi.appendChild(img);
+
+				// 添加属性
+				img.src = 'uploads/heros/' + datas[i].imgSrc;
+				img.title = datas[i].name;
+
+			}
+
+		}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		// datas是一个数组，里面每一项都是对象，一个对象中的两个属性，刚好就是img的src和title所需要的值
+		// 点击之后会创建li，li里面有一个img（创建），一个img对应的就是一个对象的信息
+		// 点击事件触发==》点击a往ul里面创建元素
+		
+		// 1、获取元素
+		// 2、添加事件
+		// 3、创建元素
+
+		// 1、获取元素
+		// var link = document.getElementById('create');
+		// var ul = document.querySelector('.list');
+
+		// // 添加事件
+		// link.onclick = function () {
+
+		// 	// 创建li
+		// 	// 遍历数组，遍历出来一项我们就创建一个li，并且还要创建img
+		// 	for (var i = 0; i < datas.length; i++) {
+		// 		// 创建li
+		// 		var newLi = document.createElement('li');
+		// 		// 追加到ul中
+		// 		ul.appendChild(newLi);
+
+		// 		// 创建一个img
+		// 		var newImg = document.createElement('img');
+		// 		// 放大li中
+		// 		newLi.appendChild(newImg);
+
+		// 		// img添加属性
+		// 		newImg.src = 'uploads/heros/' + datas[i].imgSrc;
+		// 		newImg.title = datas[i].name;
+
+		// 	}
+
+		// }
+
+
+  </script>
+</body>
+
+</html>

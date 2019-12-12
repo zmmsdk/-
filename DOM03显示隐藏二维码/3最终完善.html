@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .nodeSmall {
+      width: 50px;
+      height: 50px;
+      background: url(images/bgs.png) no-repeat -159px -51px;
+      position: fixed;
+      right: 10px;
+      top: 40%;
+    }
+    
+    .erweima {
+      position: absolute;
+      top: 0;
+      left: -150px;
+    }
+    
+    .nodeSmall a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+    
+    .hide {
+      display: none;
+    }
+    
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<!--父盒子-->
+<div class="nodeSmall" id="node_small">
+  <a href="#"></a>
+  <!--二维码的盒子:进行显示隐藏的操作-->
+  <div class="chide erweima hide fl colorRed a b c" id="er">
+    <img src="images/456.png" alt=""/>
+  </div>
+</div>
+
+
+<script src="../../common.js"></script>
+
+<script>
+  //1 获取元素
+  var box = document.getElementById("node_small");//进行操作的大盒子
+  var er = document.getElementById("er");//进行显示隐藏的二维码盒子
+  
+  //2 设置移入移出事件
+  
+  //移入移出时，如果二维码盒子的类名已经被修改过(跟原始的两个类名不同了，内部的操作也需要修改)
+  box.onmouseover = function () {
+    //使用replace的替换方式虽然可以，但是可能会不准确
+    //1 获取元素当前的类名
+    var tempClass = er.className;
+    
+    //2 使用字符串方法split()将类名分割，单独检测每一个部分
+    var tempArr = tempClass.split(" ");
+    
+    //3 使用数组的indexOf(),保存找到的位置
+    var tempIndex = tempArr.indexOf("hide");
+    
+    //4 对找到的位置进行重新赋值
+    tempArr[tempIndex] = "show";
+    
+    //5 将数组的所有元素按照" "连接后，设置给className属性即可
+    er.className = tempArr.join(" ");
+    
+  };
+  
+  box.onmouseout = function () {
+    changeClass(er, "show", "hide");
+  };
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>JavaScript鼠标单击事件(onclick)</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 100px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+	<script type="text/javascript">
+		//鼠标经过事件，当鼠标移到一个对象上时，该对象就触发onmouseover事件，并执行onmouseover事件调用的程序。
+		// 实例：当鼠标移动到绑定了onmouseover事件的元素时，弹出对话框
+		
+        function fun(){
+                x= document.getElementById("box");
+                x.style.display = "block";
+            } 
+         function fu(){
+             x= document.getElementById("box");
+             x.style.display = "none";
+         } 
+         function f(){
+             x= document.getElementById("box");
+             x.style.display = "block";
+         } 
+        
+	</script>
+</head>
+<body>
+       
+<div class="box" id="box">
+
+</div>
+        <button onmouseover="fun()" >鼠标移入</button>
+        <button  onmouseout="fu()">鼠标移出</button>
+        <button  onclick="f()">单击事件</button>
+        <!-- 大家可以尝试在其它标签上加上onclick事件 -->
+</body>
+</html>

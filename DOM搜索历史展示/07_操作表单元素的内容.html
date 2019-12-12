@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    2. 验证表单元素的内容设置
+      1> 创建一个input,设置表单的默认值是‘我是默认值’
+      2> 当input获得焦点时，清空input框
+      3> 当input失去焦点时,如果input内容为空，则将表单内容设置成‘我是默认值’
+   -->
+  <input type="text" value='我是默认值'>
+  <script>
+  // 1. 当input获得焦点时，清空input框
+  var ipt = document.getElementsByTagName('input')[0];
+  ipt.onfocus = function(){
+    // 设置input的内容为空
+    this.value = '';
+  }
+  // 2. 当input失去焦点时,如果input内容为空，则将表单内容设置成‘我是默认值’
+  ipt.onblur = function(){
+   // 如果input内容为空，则将表单内容设置成‘我是默认值’
+   // 1> 判断input的内容是否为空
+   if(this.value === ''){
+   // 2> 是：表单内容设置成‘我是默认值’ 
+      this.value = '我是默认值';
+   }
+  }
+  </script>
+</body>
+</html>

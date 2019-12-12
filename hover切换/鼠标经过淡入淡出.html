@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    .box{
+        width: 610px;
+        height: 300px;
+        background-color: #666;
+        /* display: none; */
+    }
+    .box_1{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        float: left;
+        margin: 1px;
+    }
+    .big{
+        width: 200px;
+        height: 200px;
+        background-color: #000;
+    }
+    </style>
+
+
+    <script>
+    
+    
+    </script>
+</head>
+<body>
+    
+<button>点击切换</button>
+
+
+<div class="box">
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+    <div class="box_1"></div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+
+$('button ').hover(function(){
+    console.log('ceshi');
+    // this是当前box_1
+    // $('.box_1').siblings('.big').stop().slideToggle();
+    $('.box_1').stop().fadeToggle(3000);
+    
+});
+
+// 要引入jQuery文件
+</script>
+</body>
+</html>

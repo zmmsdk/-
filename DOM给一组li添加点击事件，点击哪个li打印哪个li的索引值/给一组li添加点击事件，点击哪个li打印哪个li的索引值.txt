@@ -1,0 +1,33 @@
+		
+
+给一组li添加点击事件，点击哪个li打印哪个li的索引值
+
+
+	// 获取元素
+		var lis = document.querySelectorAll('li');// lis = [li,li,li......]
+
+		// 添加事件：给每一个li添加事件，一个一个找到并且添加
+		// lis[0].onclick = function () {
+		// 	alert('哇哈哈');
+		// }
+		// 遍历添加事件
+		// 打印索引值：
+		for (var i = 0; i < lis.length; i++) {
+			// 一进入循环，立刻给这个li添加一个下标属性，用来记录下标
+			lis[i].index = i;
+			// 找规律
+			// lis[0].index = 0;
+			// lis[1].index = 1;
+			// lis[2].index = 2;
+			// ......
+
+			// console.log( lis[i] );
+			lis[i].onclick = function () {
+
+				// alert('哇哈哈');
+				// console.log(i);
+				console.log(this.index);
+
+			}
+
+		}

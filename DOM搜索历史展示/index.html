@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+       html{
+           font-size: 14px;
+       }
+
+    </style>
+    
+</head>
+<body>
+    <div class="search">
+
+       
+        <input type="text"  id="input">
+   
+        <div class="box" id="box">
+           <div class="box_1">1.alibaba在纳斯达克上市</div>
+           <div class="box_1">2.360公司回到A股估值4000亿</div>
+           <div class="box_1">3.相约十年 谷歌回到中国市场</div>
+           
+        
+        </div>
+
+        <a href="#">搜索</a>
+    </div>
+
+
+
+
+
+    <script>
+            // 1. 当input获得焦点时，清空input框
+      
+
+               // 1.获取元素//querySelector('所有css的类名都可以用了')
+
+       var btn = document.querySelector('input');
+
+       var box = document.querySelector('.box');
+
+       var search = document.querySelector('.search');
+        // 2.添加事件
+        btn.onfocus = function(){
+            //  大量代码
+            // alert('测试成功');
+            box.style.display = 'block';
+
+            // 改变元素下边框颜色
+            // search.style.borderBottomColor = '#fff';
+
+        } 
+
+        btn.onblur = function(){
+             // 如果input内容为空，则将表单内容设置成‘我是默认值’
+             // 1> 判断input的内容是否为空
+             box.style.display = 'none';
+            
+            } 
+            // 2. 当input失去焦点时,如果input内容为空，则将表单内容设置成‘我是默认值’
+            // ipt.onblur = function(){
+            //  // 如果input内容为空，则将表单内容设置成‘我是默认值’
+            //  // 1> 判断input的内容是否为空
+            //  if(this.value === ''){
+            //  // 2> 是：表单内容设置成‘我是默认值’ 
+            //     // this.value = '我是默认值';
+            //  }
+            // }
+            </script>
+</body>
+</html>

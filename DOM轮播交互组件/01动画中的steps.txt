@@ -1,0 +1,38 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 1.定义 @keyframes 定义关键帧 from to 两个状态 */
+    
+    @keyframes donghua {
+      /* 初始化 没有移动 */
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(800px);
+      }
+    }
+    
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #222;
+      /* 2.调用 */
+      animation-name: donghua;
+      /* 3.时间 */
+      animation-duration: 3s;
+      /* ease:慢-快-慢 */
+      /* steps:几小步去完成动画，一般情况就是 两个动画序列 动画节点*/
+      animation-timing-function: steps(5);
+      /* animation-timing-function: linear; */
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

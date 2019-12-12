@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      width: 100px;
+      border:1px solid red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <img src="xn.png" alt="">
+  <script>
+    // 1. 获取图片元素
+    var img = document.querySelector('img');
+    // 2. 给文档注册onmosuemove事件
+    document.onmousemove = function(e) {
+      // 3. 获取鼠标的位置
+      var x = e.clientX;
+      var y = e.clientY;
+      // 4. 设置给图片的left和top样式
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
+    };
+  </script>
+</body>
+</html>

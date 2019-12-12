@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: red;
+      top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn1">正方向运动</button>
+  <button id="btn2">反方向运动</button>
+  <div></div>
+  <script src="lib/animate2.0.js"></script>
+  <script>
+    var btn1 = document.querySelector('#btn1');
+    var btn2 = document.querySelector('#btn2');
+    var box2 = document.querySelector('div');
+    
+    // 【正方向运动】
+    btn1.onclick = function () {
+      move(box2,1111,10);
+    };
+    // 【反方向运动】
+    btn2.onclick = function () {
+      move(box2,0,11);
+    };
+    // 问题：若目标值和原有值，无法整除时，则会在物体运动的最后一步左右波动。
+    // 原因：目标值和原有值无法整除
+    // 解决：前提不要再顾虑目标值和原有值无法整除的问题，哪怕是无法整除也能很好到达目标。
+    
+
+
+
+  </script>
+</body>
+
+</html>

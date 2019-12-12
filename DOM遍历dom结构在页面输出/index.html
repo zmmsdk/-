@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    
+
+    <input type="button" value="input对象">
+    <script>
+        // 1.获取元素
+       var btn = document.querySelector('input');
+        // 2.添加事件   //添加事件本质就相当于给标签对象添加方法
+        btn.onclick = function(){
+            //  alert测试
+            alert('测试成功');
+         
+		//获取属性
+	     console.log(document);
+		
+        }  
+        // this指向window
+        
+    </script>
+</body>
+</html>

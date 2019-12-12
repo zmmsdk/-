@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #eee;
+
+            font-size: 14px;
+        }
+        /* 1.伪元素清除浮动  */
+
+        *{
+            margin: 0;
+            padding: 0;
+
+            text-decoration: none;
+
+            box-sizing: border-box;
+
+           
+        }
+        a{
+            color: #666;
+        }
+	.clearfix::after{
+		content: ".";
+		clear: both;
+		display: block;
+	
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+		/* IE浏览器兼容 */
+		*zoom:1;
+	}
+        .container{
+            width: 100%;
+            max-width: 640px;
+
+            /* background-color: pink; */
+            /* height: 540px; */
+            margin: 0 auto;
+        }
+        header{
+            width: 100%;
+            max-width: 640px;
+
+            height: 45px;
+            line-height: 45px;
+
+            background-color: #fff;
+
+           position: relative;
+            /* 消除垂直塌陷 */
+           overflow: hidden;
+        }
+        /* 左右定位开始 */
+        header .logo{
+            width: 80px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            left: 0;
+          
+        }
+        header .logo img{
+            width: 100%;
+            height: 100%;
+        }
+        header .list{
+            width: 40px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+          
+        }
+        header .list img{
+            width: 60%;
+            height: 60%;
+            margin-top: 10px;
+        }
+
+        header .search_box{
+          /* 此处不设置宽度可以让盒子自由伸缩 */
+            height: 30px;
+            background-color: #ccc;
+
+            position: relative;
+            margin: 7px 50px 7px 90px;
+
+            border-radius: 15px;
+            
+        }
+        header .search_box .max{
+            width: 35px;
+            height: 30px;
+            /* margin: 7px 0px; */
+
+            border-radius: 0 15px 15px 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            background-color: deeppink;
+
+            /* background: url("images/search-btn.png"); */
+            /* background-repeat: no-repeat; */
+
+        }
+        header .search_box .max img{
+            width: 50%;
+            height: 60%;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+        header .search_box input{
+            height: 25px;
+            background-color: #ccc;
+            width: 80%;
+            position: absolute;
+            top: 1px;
+            left: 15px;
+           outline: none;
+           border: none;
+
+        }
+   
+     
+   
+        /* 秒杀模块开始 */
+        .fi{
+            width: 100%;
+          
+          max-width: 640px;
+
+          background-color: #ccc;
+        
+
+        
+
+     
+        padding: 5px 0;
+        }
+        .miaosha{
+            width: 100%;
+          
+          max-width: 640px;
+          background-color: #fff;
+          text-align: center;
+           padding: 10px 0;
+
+       
+
+     
+          height: 50px;
+        }
+        .miaosha span{
+            font-size: 14px;
+   
+        }
+      
+
+        .fi a{
+            width: 100%;
+            float: left;
+
+            box-sizing: border-box;
+
+            text-align: left;
+
+           height: auto;
+      
+           margin: 4px;
+           background-color: #fff;
+           
+
+       
+         
+
+    
+        }
+        .fi .b img{
+            /* width: 25%; */
+            width: 86px;
+            height: 86px;
+            vertical-align: top;
+            box-sizing: border-box;
+            float: left;
+
+          
+
+        }
+        .fi .b  p{
+            margin-bottom: 10px;
+            /* 把文本强制在一行显示 */
+            white-space: nowrap;
+            /* 隐藏超出部分的文字 */
+            /* overflow: hidden; */
+            /* 超出显示省略号 */
+            text-overflow: ellipsis;
+        }
+        .fi .b .right{
+            float: right;
+        }
+        .fi .b .span{
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+
+            color: deeppink;
+
+            font-weight: 700;
+            position: relative;
+            
+        }
+        .fi .b .span::after{
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: block;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #000;
+
+            background: url(images/collect.png) center no-repeat;
+            /* 设置背景图片大小 */
+            background-size: 80%;
+
+        }
+    
+        .fi .last1{
+            width: 50%;
+            height: auto;
+
+            /* 边框搭档 */
+            border-top: 1px solid #ccc;
+
+            box-sizing: border-box;
+
+            overflow: hidden;
+        }
+        .footer{
+            width: 100%;
+            max-width: 640px;
+            background-color: #fff;
+        }
+        .user{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            font-size: 22px;
+            font-weight: 700;
+            color: #666;
+        }
+        .user span:nth-child(3){
+            float: right;
+
+            /* color: deeppink; */
+        }
+        .user span:nth-child(2){
+           margin-left: 20px;
+        }
+        .middle{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+        
+            font-size: 18px;
+         
+            color: #666;
+            text-align: center;
+
+        }
+        .middle span{
+            margin-left: 10px;
+        }
+        .middle span:nth-child(2){
+          color: deeppink
+
+        }
+
+
+
+        .la{
+            width: 100%;
+          
+          max-width: 640px;
+
+      
+          /* height: 300px; */
+
+
+        
+
+        
+
+     
+        padding: 5px 0;
+        }
+
+        .la a{
+            width: 48%;
+            float: left;
+
+            box-sizing: border-box;
+
+            text-align: left;
+
+           height: auto;
+      
+           margin: 4px;
+           background-color: #fff;
+           
+
+       
+         
+
+    
+        }
+        .la a img{
+            width: 100%;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header start -->
+        <header>
+            <div class="logo">
+                <img src="images/dd-logo.png" alt="">
+            </div>
+
+            <div class="search_box">
+                    <input type="text" autofocus  placeholder="请输入您的宝贝">
+                <div class="max">
+                       
+                    <img src="images/search-btn.png" alt="">
+
+                    
+                </div>
+            </div>
+
+            <div class="list">
+                <img src="images/header-category.png" alt="">
+            </div>
+        </header>
+
+      
+
+     
+        <!-- 秒杀模块开始 -->
+        <section class="clearfix fi">
+            <div class="miaosha">
+                <span>订单详情</span>
+               
+            </div>
+
+           
+            <a href="#" class="b">
+                 
+                    <p>订单编号：9941788290</p>
+                    <p>订单金额：￥69.00</p>
+                    <p>订单日期：2015-08-22 16:57:18</p>
+                  
+                    
+            </a>
+
+            <a href="#" class="b">
+                    <img src="images/556671a1Ne5e7c6c7.jpg" class="left">
+                    <div class="right">
+                        <p class="title">Candy Moyo膜玉糖果色指甲油套装紫红色巧克力色健康环保美甲套组</p>
+                        <p class="price">￥59.00 <span></span></p>
+                        <p class="order-data">X1</p>
+                    </div>
+                  
+                    
+            </a>
+
+            <a href="#" class="b">
+                   
+                    <p class="border-bottom usr-name">
+                            Johnson丶Lee
+                            <span class="fr">134****1150</span>
+                        </p>
+                        <p class="usr-addr">陕西西安市新城区陕西省西安市新城区</p>
+                
+                  
+                    
+            </a>
+            <a href="#" class="b">
+                    
+                    <p class="border-bottom usr-name">付款方式:<span class="fr">在线支付</span></p>
+																		
+									
+                    <p>商品金额:<span class="fr red">￥69.00</span></p>
+
+
+                    <p>返现:<span class="fr red">￥0.00</span></p>
+
+
+                     <p class="border-bottom">运费:<span class="fr red">￥0.00</span></p>
+
+
+                    <p>应支付金额:<span class="fr red">￥69.00</span></p>
+                    
+                  
+                    
+            </a>
+<!-- 旗舰店模块 -->
+            <a href="#" class="b">
+                    <p class="border-bottom usr-name">配送信息<span class="fr"></span></p>
+                    <p>配送方式: 普通快递</p>
+                    <p>送货时间： 只工作日送货（双休日、假日不用送）</p>
+                    <p>配送时间： </p>
+                    
+                  
+                    
+            </a>
+            <a href="#" class="b">
+                    <p class="border-bottom usr-name">发票信息<span class="fr"></span></p>
+                    <p>发票类型:  不开发票</p>
+                    <p></p>
+                    
+                  
+                    
+            </a>
+           
+               
+        </section>
+
+
+
+        <section class="clearfix la">
+              
+    
+                 <a href="#">
+                    <img src="images/1477078008-1_b.jpg" alt="">
+                    <span>Sweet City/都市甜心油性指甲油美</span>
+                    <span>&yen;1.00</span>
+                    
+                </a>
+                <a href="#">
+                        <img src="images/1477078008-1_b.jpg" alt="">
+                        <p>Sweet City/都市甜心油性指甲油美</p>
+                        <span>&yen;1.00</span>
+                        
+                </a> 
+               
+                   
+        </section>
+
+
+        <section class="clearfix la">
+              
+    
+                <a href="#">
+                   <img src="images/1477078008-1_b.jpg" alt="">
+                   <span>Sweet City/都市甜心油性指甲油美</span>
+                   <span>&yen;1.00</span>
+                   
+               </a>
+               <a href="#">
+                       <img src="images/1477078008-1_b.jpg" alt="">
+                       <p>Sweet City/都市甜心油性指甲油美</p>
+                       <span>&yen;1.00</span>
+                       
+               </a> 
+              
+                  
+       </section>
+      
+
+     
+
+     
+
+
+   
+   
+
+    
+
+    
+
+        <div class="footer">
+            <div class="user">
+                    <span>登录</span>
+                    <span>注册</span>
+                    <span>TOP</span>
+            </div>
+
+            <div class="middle">
+                    <span>提建议</span>
+                    <span>触屏版</span>
+                    <span>电脑版</span>
+                    <span>帮助</span>
+            </div>
+            <div class="middle">
+                    <span>copyright zmmsdk 2014-2019 zmmsdk.com</span>
+                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

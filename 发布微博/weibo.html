@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/weibo.css">
+</head>
+
+<body>
+  <div class="w">
+    <!-- 操作的界面 -->
+    <div class="controls">
+      <img src="images/tip.png" alt=""><br>
+      <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+      <div>
+        <span class="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+      </div>
+
+    </div>
+    <!-- 微博内容列表 -->
+    <div class="contentList">
+      <ul>
+       
+      </ul>
+    </div>
+  </div>
+  <!-- <script src="js/weibo.js"></script> -->
+  <script type="text/javascript">
+      // 获取元素
+      var area = document.getElementById('area');
+      var useCount = document.querySelector('.useCount');
+      var send = document.getElementById('send');
+      var ul = document.querySelector('.contentList ul');
+
+      // 点击创建li
+      // li里面有两个div一个叫info，一个叫content
+      // info：img头像，span名字，p时间
+      // content：放的就是输入的内容
+
+      // 1、输入的时候显示个数
+      area.oninput = function () {
+        useCount.innerText = area.value.length;
+      }
+      
+      // 2、点击发布内容
+      send.onclick = function () {
+
+          if (area.value.length == 0) {// 为空
+            // 提示
+            alert('别乱来，好好写');
+          } else{
+             // 创建li
+             var newLi = document.createElement('li');
+             // 追加到ul
+             ul.insertBefore(newLi, ul.children[0]);
+
+             // 创建info
+             var info = document.createElement('div');
+             // 追加到li
+             newLi.appendChild(info);
+             // 添加类名
+             info.className = 'info';
+
+             // 创建img
+             var img = document.createElement('img');
+             // 添加到页面
+             info.appendChild(img);
+             // 添加路径
+             img.src = 'images/03.jpg';
+
+             // 创建span
+             var span = document.createElement('span');
+             // 放到info里面
+             info.appendChild(span);
+             // 设置内容
+             span.innerText = '宇智波鼬';
+
+             // 创建p
+             var p = document.createElement('p');
+             // p放到页面
+             info.appendChild(p);
+             // 内容
+             // toLocaleString()：转换本地时间
+             p.innerText = new Date().toLocaleString();
+
+
+
+             // 创建content
+             var content = document.createElement('div');
+             // 放到li
+             newLi.appendChild(content);
+             // 添加类名
+             content.className = 'content';
+             // 设置内容
+             content.innerText = area.value;
+             // 发布完成要清空
+             area.value = '';
+             // 长度设置回去
+             useCount.innerText = 0;
+
+
+          }
+
+      }
+
+
+  </script>
+</body>
+
+</html>

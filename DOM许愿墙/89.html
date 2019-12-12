@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      margin: 0 auto;
+      padding: 0px;
+      font-size: 12px;
+      background: url(images/bg.gif) repeat center 36px;
+      text-align: center;
+      background-color: #c30230;
+    }
+
+    #content {
+      margin: 0 auto;
+      width: 960px;
+      background: url(images/content_bg.jpg) no-repeat left top;
+      height: 627px;
+    }
+
+    #content .tip1,
+    #content .tip2,
+    #content .tip3,
+    #content .tip4,
+    #content .tip5,
+    #content .tip6,
+    #content .tip7,
+    #content .tip8 {
+      position: absolute;
+      width: 227px;
+      left: 200px;
+      top: 100px;
+    }
+
+    #content .tip1 .tip_h {
+      background: url(images/tip1_h.gif) no-repeat left top;
+    }
+
+    #content .tip1 .tip_h,
+    #content .tip2 .tip_h,
+    #content .tip3 .tip_h,
+    #content .tip4 .tip_h,
+    #content .tip5 .tip_h,
+    #content .tip6 .tip_h,
+    #content .tip7 .tip_h,
+    #content .tip8 .tip_h {
+      width: 227px;
+      padding-top: 45px;
+      height: 23px;
+      text-align: left;
+      cursor: move;
+    }
+
+    #content .tip1 .tip_c {
+      background: url(./images/tip1_c.gif) repeat-y;
+    }
+
+    #content .tip1 .tip_c,
+    #content .tip2 .tip_c,
+    #content .tip3 .tip_c,
+    #content .tip4 .tip_c,
+    #content .tip5 .tip_c,
+    #content .tip6 .tip_c,
+    #content .tip7 .tip_c,
+    #content .tip8 .tip_c {
+      width: 200px;
+      padding-left: 12px;
+      padding-right: 15px;
+      min-height: 40px;
+      text-align: left;
+      line-height: 20px;
+      max-height: 160px;
+      word-wrap: break-word;
+      word-break: break-all;
+      overflow: hidden;
+    }
+
+    #content .tip1 .tip_f {
+      background: url(images/tip1_f.gif) no-repeat left top;
+    }
+
+    #content .tip1 .tip_f,
+    #content .tip2 .tip_f,
+    #content .tip3 .tip_f,
+    #content .tip4 .tip_f,
+    #content .tip5 .tip_f,
+    #content .tip6 .tip_f,
+    #content .tip7 .tip_f,
+    #content .tip8 .tip_f {
+      width: 227px;
+      height: 53px;
+      padding-top: 20px;
+    }
+
+    #content .close,
+    #content .close2 {
+      float: left;
+      font-size: 12px;
+      cursor: pointer;
+      color: #000000;
+    }
+
+    .clr {
+      clear: both;
+      overflow: auto;
+      display: block;
+      height: 0px;
+    }
+
+    #content .icon {
+      float: left;
+      width: 35px;
+      padding-left: 15px;
+      height: 35px;
+      text-align: center;
+    }
+
+    #content .name {
+      float: right;
+      padding-right: 15px;
+      text-align: right;
+      font-size: 14px;
+      line-height: 35px;
+      color: #C0F;
+    }
+
+    #content .num {
+      float: left;
+      padding-left: 7px;
+      width: 195px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <div class="tip1" id="cc">
+      <div class="tip_h" title="双击关闭纸条">
+        <div class="num">第[49568]条 2018-07-10 22:51:52</div>
+        <div class="close" title="关闭纸条">×</div>
+        <div class="clr"></div>
+      </div>
+      <div class="tip_c">
+        赶紧毕业迎娶白富美
+      </div>
+      <div class="tip_f">
+        <div class="icon">
+          <img src="images/bpic_1.gif" alt="" title="">
+        </div>
+        <div class="name">成真的人</div>
+        <div class="clr"></div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    var messages = [
+      { "id": 1, "name": "mahu", "content": "今天你拿苹果支付了么", "time": "2019-02-17 00:00:00" },
+      { "id": 2, "name": "haha", "content": "今天天气不错，风和日丽的", "time": "2016-02-18 12:40:00" },
+      { "id": 3, "name": "jjjj", "content": "常要说的事儿是乐生于苦", "time": "2017-03-18 12:40:00" },
+      { "id": 4, "name": "9.8的妹纸", "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都", "time": "2016-03-18 12:40:00" },
+      { "id": 5, "name": "雷锋ii.", "content": "元宵节快乐", "time": "2019-02-22 12:40:00" },
+      { "id": 6, "name": "哎呦哥哥.", "content": "据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。", "time": "2016-02-22 01:30:00" },
+      { "id": 7, "name": "哎呦杰杰.", "content": "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，", "time": "2016-02-22 01:30:00" },
+      { "id": 8, "name": "哎呦哎呦", "content": "今天哪里的烟花最好看！！？答：朋友圈。。。", "time": "2016-02-22 02:30:00" },
+      { "id": 9, "name": "没猴哥，不春晚", "content": "班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……", "time": "2016-02-22 01:30:00" },
+      { "id": 10, "name": "纯黑人", "content": "昨天买了条中华鲟在家请几个朋友吃饭，装b说自己钓的。吃到一半，警察叔叔就来了，说是收到举报，捕捞一级保护动物。还好保存了发票，调查记录一下，没事。", "time": "2019-05-16 01:30:00" },
+      { "id": 11, "name": "大小可爱爱", "content": "谁特么说的上大号解不出来的时候拍头顶的？每次这么做的时候我都感觉自己是个罐头瓶子！", "time": "2019-04-16 01:30:00" },
+      { "id": 12, "name": "小丸子", "content": "全年无BUG！", "time": "2019-10-16 09:30:00" }
+    ];
+    // 分析
+    // 1、复制字条
+    // 2、改变内容  利用msessage
+    // 3、随机改变位置
+    // 4、点击字条  提高层级
+    // 5、双击移除
+
+
+    // 封装id选择器
+    function $id(id) {
+      return document.getElementById(id)
+    }
+    // 调用接口
+    //var 变量名 =  $id('cc')
+    // 封装class选择器
+    function $class(name) {
+      return document.getElementsByClassName(name)
+    }
+    // 调用接口
+    //var 变量名 =  $class('name')
+    // 封装标签名
+    function $tagName(tagname) {
+      return document.getElementsByTagName(tagname)
+    }
+    // 调用接口
+    //var 变量名 =  $tagName('tagName')
+    // 封装css选择器
+    function $(querySelector) {
+      return document.querySelector(querySelector)
+    }
+    // 调用接口
+    //var 变量名 = $('querySelector')
+    // 封装css多类名选择器
+    function $All(querySelectorAll) {
+      return document.querySelectorAll(querySelectorAll)
+    }
+    // 调用接口
+    //var 变量名 =  $All('querySelectorAll')
+    var close  = $class('close')
+    var tips = $id('cc');  //获取已经存在的纸条
+    var content = $id('content') //获取存放纸条的容器
+    var num = $class('num');
+    var tisc = $class('tip_c');
+
+    // .纸条位置随机生成
+    var zIndex = 0;
+    for (var i = 0; i < messages.length; i++) {
+      var tipes = tips.cloneNode(true);
+      tipes.id = 'cc' + i;
+      content.appendChild(tipes);
+      var tipmessage = messages[i]
+      // console.log(tipmessage.time)
+      var index = parseInt(Math.random() * messages.length);
+      // console.log(index)
+      num[i].innerHTML = `第[${index}]条 ${tipmessage.time}`
+      tisc[i].innerHTML = tipmessage.content
+      // console.log(tipes)
+      // 横向坐标位置（200，900） y (0,600);
+      var x = parseInt(Math.random() * 700 + 200);
+
+      var y = parseInt(Math.random() * 400);
+      // console.log(x,y)
+      tipes.style.left = x + 'px'
+      tipes.style.top = y + 'px'
+      // 点击当前纸条，显示在最上面
+      tipes.onclick = function(){
+        zIndex++
+        this.style.zIndex = zIndex;
+      }
+      // 点击叉号删除纸条
+      close[i].ondblclick = function(){
+        // console.log(this.parentNode.parentNode)
+       content.removeChild(this.parentNode.parentNode)
+
+      }
+
+    }
+
+
+  </script>
+</body>
+
+</html>

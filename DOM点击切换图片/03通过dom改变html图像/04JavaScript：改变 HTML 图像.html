@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+	
+<script>
+function changeImage()
+{
+	// 长段代码赋值给短代码可以减少重复量压缩网页内存element为语义化命名
+	element=document.getElementById('myimage')
+	if (element.src.match("bulbon"))
+	{
+		element.src="zp5.jpg";
+	}
+	else
+	{
+		element.src="zp7.jpg";
+	}
+}
+</script>
+<p>点击图片就可以切换这个图片</p>
+<!-- <img id="myimage" onclick="changeImage()" src="zp5.jpg" width="100" height="180"> -->
+
+<!-- 点击按钮就可以切换这个图片 -->
+<img id="myimage"  src="zp5.jpg" width="100" height="180">
+<button type="button" onclick="changeImage()"><</button>
+
+	<!-- onclick->changeImage()=function changeImage()->return {
+	
+	 element=document.getElementById('myimage')
+	 if(element.src.match("bulbon")){       //match("bulbon")  在字符串中查找带有bulbon的图片  a或者b
+		element.src="url"
+	 	}
+	 else{
+		element.src="url"
+	 	}
+	 } -->
+</body>
+</html>

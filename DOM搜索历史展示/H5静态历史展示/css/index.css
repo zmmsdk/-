@@ -1,0 +1,34 @@
+.search {
+  width: 500px;
+  height: 48px;
+  border: 1px solid skyblue;
+  margin: 100px auto;
+  /* 给父元素开启flex布局 */
+  display: flex;
+  position: relative;
+}
+.search .cover {
+  width: 15px;
+  height: 46px;
+  background-color: #fff;
+  position: absolute;
+  right: 100px;
+  top: 0;
+}
+.search input {
+  width: 400px;
+  height: 46px;
+  border: none;
+  outline: none;
+}
+.search datalist {
+  border-radius: none;
+}
+.search a {
+  height: 48px;
+  width: 100px;
+  background-color: skyblue;
+  text-align: center;
+  line-height: 48px;
+  color: #fff;
+}

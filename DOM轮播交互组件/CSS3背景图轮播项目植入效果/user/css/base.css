@@ -1,0 +1,109 @@
+﻿/* web  base file */
+		/* *{
+			尽量不要用通配符选择器
+			margin: 0;
+			padding: 0;
+		} */
+		/*1.代码初始化清除默认样式*/
+
+		
+		li{
+			list-style: none;
+		}
+		
+		img,input{
+			/*  border: none;也可以*/
+			border: 0;
+			/* vertical-align: middle   top   bottom   只要不是baseline */
+			vertical-align: middle;
+
+			 /* 去掉轮廓线  */
+			outline-style :none;
+			/* outline: 0;也可以 */
+			padding:0;
+		}
+		i{
+			font-style: normal;
+		}
+		h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dt,dd,li,body{
+			font-weight: normal;
+			margin: 0;
+			padding: 0;
+			color: #666764;
+
+
+			/* 还可以设置字体颜色和字体大小   这两个属性可以继承 */
+			font: 12px/100%  "微软雅黑";
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		/* 2.设置统一的常用样式 */
+	/* 浮动初始化开始 */
+		.fl{
+			float: left;
+		}
+		.fr{
+			float: right;
+		}
+	/* 1.伪元素清除浮动  */
+
+
+	.clearfix::after{
+		content: ".";
+		clear: both;
+		display: block;
+	
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+		/* IE浏览器兼容 */
+		*zoom:1;
+	}
+
+    /* 2.伪元素定位实现特殊图标 */
+	/* .父盒子类名::after{
+	content: "需要写的内容例如文字";
+	
+	display: block; */
+    /* 这里的数值可以修改 */
+	/* width:20px;
+	height:20px;
+	border:;
+	background-color:;
+	position：absolute;
+	top：y;
+	left：x;
+	} */
+	/*3. 伪元素定位实现特殊图标 */
+	/* .父盒子类名::before{
+	content: "需要写的内容例如文字";
+	
+	display: block; */
+    /* 这里的数值可以修改 */
+	/* width:20px;
+	height:20px;
+	border:;
+	background-color:;
+	position：absolute;
+	top：y;
+	left：x;
+	} *
+	/*标准流版心版心布局wapper*/
+	.w{
+		width: 1200px;
+		
+		margin: 0 auto; 
+	}
+
+	/* 补版技术：.w{
+		css属性
+		只要不设置定位  浮动  margin:0 auto  width  
+			其他属性都可以
+		}
+	 */
+		.sizing{
+			/* 盒子的实际大小    就是设置的宽和高的大小   不想要边框和内外边距大小设置此属性*/
+			box-sizing:border-box;        
+		}

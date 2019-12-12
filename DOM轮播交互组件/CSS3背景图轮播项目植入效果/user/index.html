@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #ccc;
+        }
+        /* 1.伪元素清除浮动  */
+
+        *{
+            margin: 0;
+            padding: 0;
+
+            text-decoration: none;
+
+            box-sizing: border-box;
+
+           
+        }
+	.clearfix::after{
+		content: ".";
+		clear: both;
+		display: block;
+	
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+		/* IE浏览器兼容 */
+		*zoom:1;
+	}
+        .container{
+            width: 100%;
+            max-width: 640px;
+
+            /* background-color: pink; */
+            /* height: 540px; */
+            margin: 0 auto;
+        }
+        header{
+            width: 100%;
+            max-width: 640px;
+
+            height: 45px;
+            line-height: 45px;
+
+            background-color: #fff;
+
+           position: relative;
+            /* 消除垂直塌陷 */
+           overflow: hidden;
+        }
+        /* 左右定位开始 */
+        header .logo{
+            width: 80px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            left: 0;
+          
+        }
+        header .logo img{
+            width: 100%;
+            height: 100%;
+        }
+        header .list{
+            width: 40px;
+            height: 44px;
+            /* background-color: blue; */
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+          
+        }
+        header .list img{
+            width: 60%;
+            height: 60%;
+            margin-top: 10px;
+        }
+
+        header .search_box{
+          /* 此处不设置宽度可以让盒子自由伸缩 */
+            height: 30px;
+            background-color: #ccc;
+
+            position: relative;
+            margin: 7px 50px 7px 90px;
+
+            border-radius: 15px;
+            
+        }
+        header .search_box .max{
+            width: 35px;
+            height: 30px;
+            /* margin: 7px 0px; */
+
+            border-radius: 0 15px 15px 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            background-color: deeppink;
+
+            /* background: url("images/search-btn.png"); */
+            /* background-repeat: no-repeat; */
+
+        }
+        header .search_box .max img{
+            width: 50%;
+            height: 60%;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+        header .search_box input{
+            height: 25px;
+            background-color: #ccc;
+            width: 80%;
+            position: absolute;
+            top: 1px;
+            left: 15px;
+           outline: none;
+           border: none;
+
+        }
+        .lunbo{
+            width: 100%;
+            max-width: 640px;
+            margin-top: 10px;
+            position: relative;
+        }
+        .lunbo img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .lunbo .box{
+            width: 200px;
+            height: 200px;
+            /* background-color: pink; */
+            text-align: center;
+
+            box-sizing: border-box;
+
+              /* 2.移动  不用关心盒子的本身的宽高  */
+      position: absolute;
+      /* 相对于父亲 宽高 */
+      top: 50%;
+      left: 50%;
+      /* 相对于自身 宽高 */
+      transform: translate(-50%, -50%);
+
+        }
+        .lunbo .box img{
+            border-radius: 50%;
+            width: 50%;
+            margin-top: 20px;
+        }
+        .lunbo .box p{
+            font-size: 18px;
+            color: #fff;
+            margin-top: 10px;
+        }
+        nav{
+            width: 100%;
+          
+            max-width: 640px;
+
+            text-align: center;
+
+            background-color: #fff;
+            margin-top: 10px;
+
+           
+        }
+        nav span{
+            display: block;
+            margin-top: 20px;
+        }
+        nav a{
+            float: left;
+            width: 25%;
+
+            margin-top: 10px;
+
+            color: #666;
+
+
+        }
+        /* 秒杀模块开始 */
+        section{
+            width: 100%;
+          
+          max-width: 640px;
+
+          background-color: #fff;
+        
+
+        background-color: #fff;
+
+        margin-top: 10px;
+        padding: 10px 0;
+        }
+      
+
+        section a{
+            width: 33%;
+            float: left;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+           height: auto;
+         
+
+    
+        }
+        section a img{
+            width: 90%;
+            vertical-align: top;
+            box-sizing: border-box;
+          
+
+        }
+        section a span{
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+
+            color: deeppink;
+
+            font-weight: 700;
+            
+        }
+        section .first{
+            width: 50%;
+            /* border-top: 1px solid #ccc; */
+            border-right: 1px solid #ccc;
+            height: auto;
+
+            
+        }
+        section .last{
+            width: 50%;
+            height: auto;
+
+            /* 边框搭档 */
+            /* border-top: 1px solid #ccc; */
+
+            box-sizing: border-box;
+
+            overflow: hidden;
+        }
+        .footer{
+            width: 100%;
+            max-width: 640px;
+            background-color: #fff;
+        }
+        .user{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            font-size: 22px;
+            font-weight: 700;
+            color: #666;
+        }
+        .user span:nth-child(3){
+            float: right;
+
+            /* color: deeppink; */
+        }
+        .user span:nth-child(2){
+           margin-left: 40px;
+        }
+        .middle{
+            width: 100%;
+            max-width: 640px;
+            padding: 15px 20px;
+        
+            font-size: 18px;
+         
+            color: #666;
+            text-align: center;
+
+        }
+        .middle span{
+            margin-left: 10px;
+        }
+        .middle span:nth-child(2){
+          color: deeppink
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header start -->
+        <header>
+            <div class="logo">
+                <img src="images/dd-logo.png" alt="">
+            </div>
+
+            <div class="search_box">
+                    <input type="text" autofocus  placeholder="请输入您的宝贝">
+                <div class="max">
+                       
+                    <img src="images/search-btn.png" alt="">
+
+                    
+                </div>
+            </div>
+
+            <div class="list">
+                <img src="images/header-category.png" alt="">
+            </div>
+        </header>
+
+        <!-- lunbo start -->
+        <div class="lunbo">
+            <img src="images/headbg.png" alt="">
+
+            <!-- 定位开始 -->
+            <div class="box">
+                <img src="images/defaul.png" alt="">
+                <p>奋斗大哥大a97233</p>
+                <p>金牌会员</p>
+            </div>
+        </div>
+        <section class="clearfix">
+                
+    
+                <a href="#" class="first">
+                    <p>0</p>
+                    <p>待付款</p>
+                </a>
+                <a href="#" class="last">
+                        <p>0</p>
+                        <p>待确认收货</p>
+                </a>
+               
+                
+                   
+        </section>
+        <nav class="clearfix">
+            <a href="#"><img src="images/fenlei.png" alt=""><span>全部订单</span></a>
+            <a href="#"><img src="images/fenlei.png" alt=""><span>我的账户</span></a>
+            <a href="#"><img src="images/fenlei.png" alt=""><span>浏览记录</span></a>
+            <a href="#"><img src="images/fenlei.png" alt=""><span>我的关注</span></a>
+
+           
+        </nav>
+        
+
+        <div class="footer">
+                <div class="user">
+                        <span><img src="images/55546b06Nbd7a17eb.png" alt=""></span>
+                        <span>查看订单</span>
+                        <span>&gt;</span>
+                </div>
+    
+               
+           
+        </div>
+        <div class="footer">
+                <div class="user">
+                        <span><img src="images/55546b06Nbd7a17eb.png" alt=""></span>
+                        <span>收货地址</span>
+                        <span>&gt;</span>
+                </div>
+    
+               
+           
+        </div>
+        <div class="footer">
+                <div class="user">
+                        <span><img src="images/55546b06Nbd7a17eb.png" alt=""></span>
+                        <span>我的投诉</span>
+                        <span>&gt;</span>
+                </div>
+    
+               
+           
+        </div>
+
+
+       
+     
+
+        
+       
+
+        <div class="footer">
+            <div class="user">
+                    <span>登录</span>
+                    <span>注册</span>
+                    <span>TOP</span>
+            </div>
+
+            <div class="middle">
+                    <span>提建议</span>
+                    <span>触屏版</span>
+                    <span>电脑版</span>
+                    <span>帮助</span>
+            </div>
+            <div class="middle">
+                    <span>copyright zmmsdk 2014-2019 zmmsdk.com</span>
+                  
+            </div>
+        </div>
+    </div>
+</body>
+</html>
